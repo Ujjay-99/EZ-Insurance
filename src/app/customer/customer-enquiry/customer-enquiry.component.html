@@ -1,0 +1,49 @@
+<!-- Instructions
+        1. do not remove placeholders -->
+
+
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-7">
+                            <div class="card border-0 rounded-lg mt-5">
+                                <div class="card-header">
+                                    <h1 class="text-center font-weight-light my-4">
+                                        <b>
+                                            Ask Query
+                                        </b>
+                                    </h1>
+                                </div>
+                                <div class="card-body">
+                                    <form [formGroup]="queryForm" (onsubmit)="submit()">
+                                        <div class="form-floating mb-3">
+                                            <input type="number" formControlName="title" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" >
+                                            <label for="exampleFormControlInput1">Title</label>
+                                            
+                                        </div>
+                                        
+                                        <label  class="form-label">&nbsp; Note :</label>
+                                        <div class="form mb-3">
+                                            <textarea class="form-control" formControlName="information" id="exampleFormControlTextarea1" rows="3" ></textarea>
+                                          </div>
+                                          
+                                        <div class="mt-4 mb-0">
+                                            <div class="d-grid">
+                                                <button class="btn btn-success btn-block">
+                                                    Submit
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                    </form>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        
+        

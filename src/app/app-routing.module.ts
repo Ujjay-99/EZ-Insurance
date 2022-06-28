@@ -41,6 +41,7 @@ import { AppComponent } from './app.component';
 import { BasicPlanComponent } from './basic-plan/basic-plan.component';
 import { ConfirmPurchaseComponent } from './customer/confirm-purchase/confirm-purchase.component';
 import { CustomerDashboardComponent } from './customer/customer-dashboard/customer-dashboard.component';
+import { CustomerEnquiryComponent } from './customer/customer-enquiry/customer-enquiry.component';
 import { CustomerInsuranceDetailsComponent } from './customer/customer-insurance-details/customer-insurance-details.component';
 import { CustomerLoginComponent } from './customer/customer-login/customer-login.component';
 import { CustomerComponent } from './customer/customer.component';
@@ -98,6 +99,9 @@ const routes: Routes = [
 
     {path:'InsuranceDetails',component:CustomerInsuranceDetailsComponent},
     {path:'EditCustomer/:id',component:EditCustomerComponent},
+
+    {path:'Enquiry',component:CustomerEnquiryComponent},
+    
 
 
 
