@@ -5,34 +5,20 @@
       <table class="table table-hover table-bordered">
           <thead>
             <tr>      
-              <th scope="col">Insurance A/C no.</th>
+              <th scope="col">Insurance A/C Id</th>
               <th scope="col">Agent Name</th>
-  
               <th scope="col">Date</th>
-              <th scope="col">Customer</th>
-              <th scope="col">Insurance Scheme</th>
               <th scope="col">Commision Amount</th>
-                     
-              
             </tr>
           </thead>
           <tbody>
-            <!-- <tr *ngFor="let plan of planList">
-            
-              
-              <td><h3>{{plan.insuranceTypeTitle}}</h3></td>
-              <td>{{plan.insuranceSchemeTitle}}</td>
-              <td>{{plan.policyTermMin}}</td>
-              <td>{{plan.policyTermMax}}</td>
-              <td>{{plan.ageMin}}</td>
-              <td>{{plan.ageMax}}</td>
-              <td>{{plan.investmentMin}}</td>
-              <td>{{plan.investmentMax}}</td>
-              <td>{{plan.profitRatio}}</td>
-              <td>{{plan.isActive ? "Active" : "InActive"}}</td>
-              <td><a class="btn-sm btn-success" (click)="editPlan(plan.id)">Edit</a> | <a class="btn-sm btn-danger" (click)="deletePlan(plan.id)">Delete</a></td>
-            </tr> -->
-          
+            <tr *ngFor="let Commision of commissions">
+              <td><h3>{{Commision.accountId}}</h3></td>
+              <td>{{agent.firstName}} {{agent.lastName}}</td>
+              <td>{{Commision.createdAt | date:"medium"}}</td>
+              <td>₹ {{Commision.commissionAmount | number}}</td>
+            </tr>
+            <!-- <tr><h3>Total Commission: </h3></tr> -->
           </tbody>
         </table>
     </div>

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { retry } from 'rxjs';
 import { IAdmin } from 'src/app/models/IAdmin';
+import { IAgent } from 'src/app/models/IAgent';
 import { ICustomer } from 'src/app/models/ICustomer2';
 import { IMakePayment } from 'src/app/models/IMakePayment';
 import { IUser } from 'src/app/models/IUser';
@@ -144,7 +145,7 @@ export class AdminDataService {
     return this.http.get<IEmployee[]>(`http://localhost:5000/api/Users/${id}`)
   }
   viewAgentById(id:string){
-    return this.http.get<IEmployee[]>(`http://localhost:5000/api/Users/${id}`)
+    return this.http.get<IAgent>(`http://localhost:5000/api/Users/${id}`)
   }
   deleteEmployee(id:string){
     return this.http.delete(`http://localhost:5000/api/users/delete/${id}`)
