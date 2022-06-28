@@ -1,0 +1,37 @@
+<div class="card m-4">
+    <div class="card-header">
+        <h4 class="mt-3">View Customer Records</h4>
+        <hr>
+      <table class="table table-hover table-bordered">
+          <thead>
+            <tr>      
+              <th scope="col">Customer Name</th>
+              <th scope="col">Customer DOB</th>
+  
+              <th scope="col">Username</th>
+              <th scope="col">Address</th>
+              <th scope="col">PhoneNo</th>
+              <th scope="col">Nominee</th>
+              <th scope="col">Nominee Relation </th>
+              <th scope="col">Status</th>
+              <th scope="col">Documets</th>        
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let Customer of customerList">
+              <td><h3>{{Customer.firstName}} &nbsp; {{Customer.lastName}}</h3></td>
+              <td>{{Customer.doB}}</td>
+              <td>{{Customer.userName}}</td>
+              <td>{{Customer.address}} &nbsp; {{Customer.city}} &nbsp; {{Customer.state}} &nbsp; {{Customer.pincode}}</td>
+              <td>{{Customer.phoneNumber}}</td>
+              <td>{{Customer.nominee}}</td>
+              <td>{{Customer.nomineeRelation}}</td>
+              <td>Active</td>
+              <td><a >View Documents</a></td>
+            </tr>
+          
+          </tbody>
+        </table>
+    </div>
+  </div>

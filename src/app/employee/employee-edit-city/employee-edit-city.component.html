@@ -1,0 +1,65 @@
+
+<div id="layoutAuthentication_content">
+    <main>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="card border-0 rounded-lg mt-5">
+                        <div class="card-header">
+                            <h3 class="text-center font-weight-light my-4">
+                                <h1 *ngIf="isAddMode">Add City</h1>
+                                <h1 *ngIf="!isAddMode">Edit City</h1>
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <form [formGroup]="cityForm" (ngSubmit)="onSubmit()">
+                                <label>State</label>
+                                <select formControlName="stateName" class="form-select">
+                                    <option *ngFor="let state of stateList" value={{state.stateName}}>{{state.stateName}}</option>
+                                </select>
+                                <div *ngIf="submitted && f.stateName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.stateName.errors.required">stateName is required</div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" formControlName="cityName" class="form-control"
+                                        placeholder="cityName" />
+                                    <label for="sName">City Name</label>
+                                    <div *ngIf="submitted && f.cityName.errors">
+                                        <span *ngIf="f.cityName.errors.required">&nbsp; state Name is required</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="gender">Status</label>
+                                    <div>
+                                        <input id="active" type="radio" [value]="true" name="status"
+                                            formControlName="status">
+                                        <label for="active">Active</label>
+                                    </div>
+
+                                    <div>
+                                        <input id="active" type="radio" [value]="false" name="status"
+                                            formControlName="status">
+                                        <label for="active">Inactive</label>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="mt-4 mb-0">
+                                    <div class="d-grid">
+                                        <button class="btn btn-success btn-block">
+                                            Save
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

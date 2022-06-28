@@ -1,0 +1,86 @@
+<!-- Instructions
+        1. do not remove placeholders -->
+
+
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-7">
+                            <div class="card border-0 rounded-lg mt-5">
+                                <div class="card-header">
+                                    <h3 class="text-center font-weight-light my-4">
+                                        <h1 *ngIf="isAddMode">Add Scheme</h1>
+                                        <h1 *ngIf="!isAddMode">Edit Scheme</h1>
+                                    </h3>
+                                </div>
+                                <div class="card-body">
+                                    <form [formGroup]="schemeForm" (ngSubmit)="onSubmit()">
+                                        <div class="form-floating mb-3">
+                                            <select formControlName="insuranceTypeTitle" class="form-select">
+                                                <option *ngFor="let type of typeList" value={{type.typeTitle}}>{{type.typeTitle}}</option>
+                                            </select>
+                                            <label for="inputEmail">Insurance Type</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input type="text"  class="form-control" formControlName="insuranceSchemeTitle"  placeholder="Enter Insurance Type" />
+                                            <label for="inputEmail">Insurance Scheme</label>
+                                            <div *ngIf="submitted && f.insuranceSchemeTitle.errors">
+                                                <span *ngIf="f.insuranceSchemeTitle.errors.required">&nbsp; Scheme Name is required</span>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="form-floating mb-3">
+                                            <input class="form-control" id="inputEmail" type="File" placeholder="Choose File" />
+                                            <label for="inputEmail">Choose File</label>
+                                        </div>  -->
+                                        <div class="form-floating mb-3">
+                                            <input type="number" formControlName="commissionNewRegistration" class="form-control" placeholder="name@example.com" >
+                                            <label for="exampleFormControlInput1">Commision For New Registration (%)</label>
+                                            <div *ngIf="submitted && f.commissionNewRegistration.errors">
+                                                <span *ngIf="f.commissionNewRegistration.errors.required">&nbsp; Scheme Name is required</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input type="number" formControlName="commissionPerInstallment" class="form-control"  placeholder="name@example.com" >
+                                            <label for="exampleFormControlInput1">Commision For Installment Payment (%)</label>
+                                            <div *ngIf="submitted && f.commissionPerInstallment.errors">
+                                                <span *ngIf="f.commissionPerInstallment.errors.required">&nbsp; Scheme Name is required</span>
+                                            </div>
+                                        </div>
+                                        <label  class="form-label">&nbsp; Note :</label>
+                                        <div class="form mb-3">
+                                            <textarea class="form-control" formControlName="information" id="exampleFormControlTextarea1" rows="3" ></textarea>
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="gender">Status</label>
+                                            <div>
+                                                <input id="active" type="radio" [value]="true" 
+                                                    formControlName="isActive">
+                                                <label for="active">Active</label>
+                                            </div>
+        
+                                            <div>
+                                                <input id="active" type="radio" [value]="false" 
+                                                    formControlName="isActive">
+                                                <label for="active">Inactive</label>
+                                            </div>
+                                        </div>
+                                        <div class="mt-4 mb-0">
+                                            <div class="d-grid">
+                                                <button class="btn btn-success btn-block">
+                                                    Save
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                    </form>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        
+        

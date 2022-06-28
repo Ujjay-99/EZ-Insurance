@@ -1,0 +1,176 @@
+<body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container px-5">
+                <a class="navbar-brand" routerLink=""><b>EZ Insurance </b> </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation"><span
+                        class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" routerLink="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" routerLink="/">About</a></li>
+                        <li class="nav-item"><a class="nav-link" (click)="goToLogin()">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" (click)="goToAgentLogin()">Agent Login</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="card-body">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7">
+                        <div class="card border-0 rounded-lg mt-5">
+                            <h1 id="typetitle">{{insuranceTypeTitle}}</h1>
+                            <h1 id="schemetitle">{{insuranceSchemeTitle}}</h1>
+                            <hr>
+
+
+                            <label>&nbsp;<b>Policy Term</b> </label>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        <input class="form-control" id="pTermMinAge" type="number" placeholder="min"
+                                            [value]="minTerm" name="policyTermMin" readonly />
+
+                                        <label for="pTermMinAge">Minimum</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input class="form-control" id="pTermMaxAge" type="number" placeholder="max"
+                                            [value]="maxTerm" name="policyTermMax" readonly />
+                                        <label for="pTermMaxAge">Maximum</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <label>&nbsp;<b>Age</b> </label>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        <input class="form-control" id="ageMin" type="number" placeholder="min"
+                                            [value]="minAge" name="ageMin" readonly />
+                                        <label for="ageMin">Minimum</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input class="form-control" id="ageMax" type="number" placeholder="max"
+                                            [value]="maxAge" name="ageMax" readonly />
+                                        <label for="ageMax">Maximum</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <label>&nbsp;<b>Investment Amount</b> </label>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        <input class="form-control" id="tImin" type="number" placeholder="min"
+                                            [value]="investMin" name="minAmount" readonly />
+                                        <label for="tImin">Minimum</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input class="form-control" id="tImax" type="number" placeholder="max"
+                                            [value]="investMax" name="maxAmount" readonly />
+                                        <label for="tImax">Maximum</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <label>&nbsp;<b>Profit</b>(in %) </label>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="profitRatio" type="number" [value]="ratio"
+                                    placeholder="Enter Insurance Type" name="ratio" readonly />
+                                <label for="profitRatio">Profit Ratio</label>
+                            </div>
+                            <hr>
+                            <label>&nbsp;<b>Calculate Estimate</b> </label>
+
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" placeholder="years" [(ngModel)]="years" />
+                                <label for="sName">Number Of Years</label>
+                                <!-- <div *ngIf="submitted && f.years.errors">
+                            <span *ngIf="f.years.errors.required">&nbsp; state Name is required</span>
+                        </div> -->
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" placeholder="totalAmount"
+                                    [(ngModel)]="investAmount" />
+                                <label for="sName">Total Investment Amount</label>
+                                <!-- <div *ngIf="submitted && f.years.errors">
+                            <span *ngIf="f.years.errors.required">&nbsp; state Name is required</span>
+                        </div> -->
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" placeholder="months" [(ngModel)]="months" />
+                                <label for="sName">Months</label>
+                                <!-- <div *ngIf="submitted && f.years.errors">
+                            <span *ngIf="f.years.errors.required">&nbsp; state Name is required</span>
+                        </div> -->
+                            </div>
+
+
+
+                            <div class="mt-4 mb-0">
+                                <div class="d-grid">
+                                    <button class="btn btn-success btn-block" (click)="calculate()">
+                                        Calculate
+                                    </button>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="card-body">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" placeholder="months" readonly
+                                    value=" ₹ {{installAmount | number: '1.2-2'}}">
+                                <label for="sName">Installment Amount</label>
+
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" placeholder="months" readonly
+                                    value="₹ {{interestAmount | number: '1.2-2'}}" />
+                                <label for="sName">Interest Amount</label>
+
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" placeholder="months" readonly
+                                    value="₹ {{totalAmount| number: '1.2-2'}}" />
+                                <label for="sName">Total Amount</label>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </main>
+    <!-- Footer-->
+    <footer class="bg-dark py-4 mt-auto">
+        <div class="container px-5">
+            <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                <div class="col-auto">
+                    <div class="small m-0 text-white">Copyright &copy; EZ Insurance by Suyash & Ujjay</div>
+                </div>
+                <div class="col-auto">
+                    <a class="link-light small" routerLink="AdminLogin">Admin Login</a>
+                    <span class="text-white m-3">|</span>
+                    <a class="link-light small" routerLink="EmployeeLogin">Employee Login</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>

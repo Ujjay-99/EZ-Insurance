@@ -1,0 +1,28 @@
+<div class="card m-4">
+  <div class="card-header">
+      <h4 class="mt-3">Cities Table</h4>
+      <hr>
+    <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+                
+            <th scope="col">City</th>
+            <th scope="col">State</th>
+
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let city of cityList">
+            <td>{{city.cityName}}</td>
+
+        <td>{{city.stateTitle}}</td>
+        
+        <td><h3>{{city.isActive ? "Active" : "InActive"}}</h3></td>
+        <td><a class="btn-sm btn-success" (click)="editCity(city.id)">Edit</a> | <a class="btn-sm btn-danger" (click)="deleteCity(city.id)">Delete</a></td>
+        
+      </tr>
+      
+    </tbody>
+  </table>

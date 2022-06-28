@@ -1,0 +1,33 @@
+<div class="card m-4">
+    <div class="card-header">
+        <h4 class="mt-3">Agents Table</h4>
+        <hr>
+        <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                
+                <th scope="col">Agent FirstName</th>
+                <th scope="col">Agent LastName</th>
+                <th scope="col">Agent Email</th>
+                <th scope="col">Agent UserName</th>
+                <th scope="col">Agent DOB</th>
+                <th scope="col">Agent Phone Number</th>
+                <th scope="col">Action</th>
+                
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let emp of employeeList">
+                <td>{{emp.firstName}}</td>
+                <td>{{emp.lastName}}</td>
+                <td>{{emp.email}}</td>
+                <td>{{emp.userName}}</td>
+                <td>{{emp.doB | date}}</td>
+                <td>{{emp.phoneNumber}}</td>
+                <td><a  class="btn-sm btn-success" (click)="editEmployee(emp.id)">Edit</a> | <a class="btn-sm btn-danger" (click)="deleteEmployee(emp.id)">Delete</a></td>
+                
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

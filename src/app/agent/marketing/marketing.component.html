@@ -1,0 +1,43 @@
+<section class="d-flex h-100 w-100 align-items-center justify-content-center ">
+    <div class="px-4 py-5 text-center h-100" style="background-color: hsl(0, 0%, 96%)">
+    <div class="container">
+            <h1 class="my-5 fw-bold ls-tight">
+            <span class="text-primary"> Send Mail</span>
+            </h1>
+            <div class="card">
+            <div class="card-body">
+                <form [formGroup]="marketingForm">
+                    
+                  
+                    <div class="form-floating mb-3">
+                        <input type="email" formControlName="emailId" class="form-control"
+                            placeholder="emial" />
+                        <label for="sName">Email</label>
+                        
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" formControlName="subject" class="form-control"
+                            placeholder="sbject" />
+                        <label for="sName">Subject</label>
+                        
+                    </div>
+                    <label for="sName">Message</label>
+                    <div class="form-floating mb-3">
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                    </div>
+
+                    
+
+                    <div class="mt-4 mb-0">
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-block mb-4" (click)="sendMail()">Send</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+        </div>
+</section>
+

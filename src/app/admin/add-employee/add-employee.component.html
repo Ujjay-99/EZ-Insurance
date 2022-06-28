@@ -1,0 +1,80 @@
+<div id="layoutAuthentication_content">
+    <main>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="card border-0 rounded-lg mt-5">
+                        <div class="card-header">
+                            <h3 class="text-center font-weight-light my-4">
+                                <h1 *ngIf="isAddMode">Add Employee</h1>
+                                <h1 *ngIf="!isAddMode">Edit Employee</h1>
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                                <div class="form-floating mb-3">
+                                    <input type="text" formControlName="firstName" class="form-control" placeholder="firstname"/>
+                                    <label for="sName">First Name</label>
+                                    <div *ngIf="submitted && f.firstName.errors" >
+                                        <span *ngIf="f.firstName.errors.required">&nbsp; First Name is required</span>
+                                    </div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" formControlName="lastName" class="form-control" placeholder="lastname"/>
+                                    <label>Last Name</label>
+                                    <div *ngIf="submitted && f.lastName.errors" >
+                                        <span *ngIf="f.lastName.errors.required">&nbsp; Last Name is required</span>
+                                    </div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="email" formControlName="email" class="form-control" placeholder="emails"/>
+                                    <label>Email</label>
+                                    <div *ngIf="submitted && f.email.errors" >
+                                        <span *ngIf="f.email.errors.required">&nbsp; Email is required</span>
+                                    </div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="date" formControlName="doB" class="form-control" placeholder="dob" />
+                                    <label>DOB</label> 
+                                    <div *ngIf="submitted && f.doB.errors" >
+                                        <span *ngIf="f.doB.errors.required">&nbsp; DOB is required</span>
+                                    </div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" formControlName="userName" class="form-control" placeholder="userName"/>
+                                    <label>Userame</label>
+                                    <div *ngIf="submitted && f.userName.errors" >
+                                        <span *ngIf="f.userName.errors.required">&nbsp; Username is required</span>
+                                    </div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="password" formControlName="password" class="form-control" placeholder="pass"/>
+                                    <label>Password</label>
+                                    <div *ngIf="submitted && f.password.errors" >
+                                        <span *ngIf="f.password.errors.required">&nbsp; Password is required</span>
+                                    </div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" formControlName="phoneNumber" class="form-control" placeholder="ph"/>
+                                    <label>Phone No</label>
+                                    <div *ngIf="submitted && f.phoneNumber.errors" >
+                                        <span *ngIf="f.phoneNumber.errors.required">&nbsp; Phone is required</span>
+                                    </div>
+                                </div>
+                                <div class="mt-4 mb-0">
+                                    <div class="d-grid">
+                                        <button  class="btn btn-success btn-block">                                            
+                                            Save
+                                        </button>
+                                    </div>
+                                    
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

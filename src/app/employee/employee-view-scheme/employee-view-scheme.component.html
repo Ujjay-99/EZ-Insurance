@@ -1,0 +1,40 @@
+<div class="card m-4">
+    <div class="card-header">
+        <h4 class="mt-3">Insurance Schemes Table</h4>
+        <hr>
+      <table class="table table-hover table-bordered">
+          <thead>
+            <tr>
+              <!-- <th scope="col">Image</th>         -->
+              <th scope="col" [width]="200">Insuacnce Type</th>
+              <th scope="col" [width]="200">Agent Commission</th>
+              <th scope="col" [width]="700">Insurance Scheme & Note</th>
+              <th scope="col" [width]="100">Status</th>
+              <th scope="col" [width]="130">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let scheme of schemeList">
+            
+              
+              <td><h3>{{scheme.insuranceTypeTitle}}</h3></td>
+              <td> 
+                <b>Commission For new Registration: {{scheme.commissionNewRegistration}} <br>
+                  <hr> 
+                  Commission For Installment payment: {{scheme.commissionPerInstallment}}
+                </b>
+              </td>
+              <td >
+                <b>{{scheme.insuranceSchemeTitle}} : &nbsp;</b>
+                {{scheme.information}} 
+              </td>
+  
+  
+              <td><h3>{{scheme.isActive ? "Active" : "InActive"}}</h3></td>
+              <td><a class="btn-sm btn-success" (click)="editScheme(scheme.id)">Edit</a> | <a class="btn-sm btn-danger" (click)="deleteScheme(scheme.id)">Delete</a></td>
+            </tr>
+            
+          </tbody>
+        </table>
+    </div>
+  </div>

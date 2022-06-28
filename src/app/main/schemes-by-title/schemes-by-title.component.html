@@ -1,0 +1,70 @@
+
+    <body class="d-flex flex-column h-100">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container px-5">
+            <a class="navbar-brand" routerLink=""><b>EZ Insurance </b> </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" routerLink="/">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" routerLink="/">About</a></li>
+                            <li class="nav-item"><a class="nav-link" (click)="goToLogin()" >Login</a></li>
+                            <li class="nav-item"><a class="nav-link" (click)="goToAgentLogin()">Agent Login</a></li>
+
+                            
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+           <h2>{{PlanName}}</h2>
+           <section class="py-5">
+            <div class="container px-5 my-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-8 col-xl-6">
+                        <div class="text-center">
+                            <h2 class="fw-bolder">Insurance Schemes</h2>
+                            <p class="lead fw-normal text-muted mb-5">We offer variety of Insurance schemes with flexible plans.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gx-5">
+                    <div class="col-lg-4 mb-5" *ngFor="let scheme of schemesList">
+                        <div class="card h-100 shadow border-0">
+                            <img class="card-img-top" src="https://dummyimage.com/600x350/ced4da/6c757d" alt="..." />
+                            <div class="card-body p-4">
+                                <div class="badge bg-primary bg-gradient rounded-pill mb-2">{{scheme.insuranceTypeTitle}}</div>
+                                <a class="text-decoration-none link-dark stretched-link" (click)="planDetails(scheme.insuranceSchemeTitle)"><h2 class="card-title mb-3">{{scheme.insuranceSchemeTitle}}</h2></a>
+                                <p class="card-text mb-0">{{scheme.information}}</p>
+                            </div>
+                            <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                <div class="d-flex align-items-end justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                        <div class="small">
+                                            <div class="fw-bold">EZ insurance plans</div>
+                                            <!-- <div class="text-muted">{{scheme.createdAt | date:"medium"}}</div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </main>
+        <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; EZ Insurance by Suyash & Ujjay</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" routerLink="AdminLogin">Admin Login</a>
+                        <span class="text-white m-3">|</span>
+                        <a class="link-light small" routerLink="EmployeeLogin">Employee Login</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>

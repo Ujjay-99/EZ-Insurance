@@ -1,0 +1,123 @@
+<!-- Instructions
+        1. do not remove placeholders -->
+
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-7">
+                            <div class="card border-0 rounded-lg mt-5">
+                                <div class="card-header">
+                                    <h3 class="text-center font-weight-light my-4">
+                                        <h1 *ngIf="isAddMode">Add Plan</h1>
+                                        <h1 *ngIf="!isAddMode">Edit Plan</h1>
+                                    </h3>
+                                </div>
+                                <div class="card-body">
+                                    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                                        <div class="form-floating mb-3">
+                                            <select class="form-select" #plan aria-label="Default select example" (change)="onSelected(plan.value)" formControlName="insuranceTypeTitle">
+                                                <option selected >Select Plan</option>
+                                                <option *ngFor="let type of typeList"  value={{type.typeTitle}} >{{type.typeTitle}}</option>
+                                                
+                                               
+                                            </select>
+                                            <label>Insurance Type</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <!-- <input class="form-control" id="iType" type="text" placeholder="Enter Insurance Type" />
+                                             -->
+                                             <select class="form-select" #plan aria-label="Default select example" formControlName="insuranceSchemeTitle">
+                                                <option selected >Select Scheme</option>
+                                                <option *ngFor="let scheme of schemeList"  value={{scheme.insuranceSchemeTitle}} >{{scheme.insuranceSchemeTitle}}</option>
+                                                
+                                               
+                                            </select>
+                                            <label for="iType">Insurance Scheme</label>
+                                        </div>
+                                        <label >&nbsp;<b>Policy Term</b> </label>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input class="form-control" id="pTermMinAge" type="number" placeholder="min" formControlName="policyTermMin" name="policyTermMin" />
+                                                    <label for="pTermMinAge">Minimum</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-floating">
+                                                    <input class="form-control" id="pTermMaxAge" type="number" placeholder="max" formControlName="policyTermMax" name="policyTermMax"/>
+                                                    <label for="pTermMaxAge">Maximum</label>
+                                                </div>
+                                            </div> 
+                                        </div>
+                                        <label >&nbsp;<b>Age</b> </label>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input class="form-control" id="ageMin" type="number" placeholder="min" formControlName="ageMin"name="ageMin"/>
+                                                    <label for="ageMin">Minimum</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-floating">
+                                                    <input class="form-control" id="ageMax" type="number" placeholder="max" formControlName="ageMax"name="ageMax"/>
+                                                    <label for="ageMax">Maximum</label>
+                                                </div>
+                                            </div> 
+                                        </div>
+                                        <label >&nbsp;<b>Total Investment Amount</b> </label>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input class="form-control" id="tImin" type="number" placeholder="min" formControlName="investmentMin" name="minAmount"/>
+                                                    <label for="tImin">Minimum</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-floating">
+                                                    <input class="form-control" id="tImax" type="number" placeholder="max" formControlName="investmentMax" name="maxAmount"/>
+                                                    <label for="tImax">Maximum</label>
+                                                </div>
+                                            </div> 
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="profitRatio" type="number" placeholder="Enter Insurance Type" formControlName="profitRatio" name="ratio"/>
+                                            <label for="profitRatio">Profit Ratio</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="gender">Status</label>
+                                            <div>
+                                                <input id="active" type="radio" [value]="true" name="status"
+                                                    formControlName="status">
+                                                <label for="active">Active</label>
+                                            </div>
+        
+                                            <div>
+                                                <input id="active" type="radio" [value]="false" name="status"
+                                                    formControlName="status">
+                                                <label for="active">Inactive</label>
+                                            </div>
+        
+        
+                                        </div>
+                                          
+                                        <div class="mt-4 mb-0">
+                                            <div class="d-grid">
+                                                <button class="btn btn-success btn-block">
+                                                    Save
+                                                </button>
+                                            </div>
+        
+                                        </div>
+                                        
+                                    </form>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        
+        

@@ -1,0 +1,95 @@
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Dashboard</h1>
+    
+    <div class="row">
+        <div class="col-xl-6 col-md-6">
+            <div class="card bg-primary text-white mb-4">
+                <div class="card-body">State Count : <strong class="number">{{stateCount}}</strong></div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" routerLink="/Admin/ViewState">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="col-xl-6 col-md-6">
+            <div class="card bg-danger text-white mb-4">
+                <div class="card-body">Agents Count : <strong class="number">{{agentsCount}}</strong></div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" routerLink="/Admin/ViewAgent">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-primary text-white mb-4">
+                <div class="card-body">Cities Count : <strong class="number">{{cityCount}}</strong></div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" routerLink="/Admin/ViewCity">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-warning text-white mb-4">
+                <div class="card-body">Insurance Schemes Count : <strong class="number">{{insuranceSchemeCount}}</strong></div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" routerLink="/Admin/ViewScheme">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-success text-white mb-4">
+                <div class="card-body">Insurance Plans Count : <strong class="number">{{insurancePlanCount}}</strong></div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" routerLink="/Admin/ViewPlan">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-danger text-white mb-4">
+                <div class="card-body">Policies Bought Count : <strong class="number">{{policiesBoughtCount}}</strong></div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" routerLink="/Admin/ViewAgent">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4 class="mt-3">Agents Table</h4>
+            <hr>
+            <table class="table table-hover table-bordered">
+                <thead>
+                <tr>
+                    
+                    <th scope="col">Agent FirstName</th>
+                    <th scope="col">Agent LastName</th>
+                    <th scope="col">Agent Email</th>
+                    <th scope="col">Agent UserName</th>
+                    <th scope="col">Agent DOB</th>
+                    <th scope="col">Agent Phone Number</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let agent of agentList">
+                    <td>{{agent.firstName}}</td>
+                    <td>{{agent.lastName}}</td>
+                    <td>{{agent.email}}</td>
+                    <td>{{agent.userName}}</td>
+                    <td>{{agent.doB | date}}</td>
+                    <td>{{agent.phoneNumber}}</td>
+                </tr>
+
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+</div>

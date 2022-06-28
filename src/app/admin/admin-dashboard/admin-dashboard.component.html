@@ -1,0 +1,111 @@
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Dashboard</h1>
+    
+    <div class="row">
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-primary text-white mb-4">
+                <div class="card-body">State Count : <span class="number">{{stateCount}}</span></div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" routerLink="/Admin/ViewState">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-warning text-white mb-4">
+                <div class="card-body">Customers Count : <span class="number">{{customersCount}}</span></div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" routerLink="/Admin/ViewCustomers">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-success text-white mb-4">
+                <div class="card-body">Employees Count : <span class="number">{{employeesCount}}</span></div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" routerLink="/Admin/ViewEmployee">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-danger text-white mb-4">
+                <div class="card-body">Agents Count : <span class="number">{{agentsCount}}</span></div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" routerLink="/Admin/ViewAgent">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-primary text-white mb-4">
+                <div class="card-body">Cities Count : <span class="number">{{cityCount}}</span></div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" routerLink="/Admin/ViewCity">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-warning text-white mb-4">
+                <div class="card-body">Insurance Schemes Count : <span class="number">{{insuranceSchemeCount}}</span></div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" routerLink="/Admin/ViewScheme">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-success text-white mb-4">
+                <div class="card-body">Insurance Plans Count : <span class="number">{{insurancePlanCount}}</span></div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" routerLink="/Admin/ViewPlan">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-danger text-white mb-4">
+                <div class="card-body">Policies Bought Count : <span class="number">{{policiesBoughtCount}}</span></div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" routerLink="/Admin/ViewAgent">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4 class="mt-3">Employees Table</h4>
+            <hr>
+            <table class="table table-hover table-bordered">
+                <thead>
+                <tr>
+                    
+                    <th scope="col">Employee FirstName</th>
+                    <th scope="col">Employee LastName</th>
+                    <th scope="col">Employee Email</th>
+                    <th scope="col">Employee UserName</th>
+                    <th scope="col">Employee DOB</th>
+                    <th scope="col">Employee Phone Number</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let emp of employeeList">
+                    <td>{{emp.firstName}}</td>
+                    <td>{{emp.lastName}}</td>
+                    <td>{{emp.email}}</td>
+                    <td>{{emp.userName}}</td>
+                    <td>{{emp.doB | date}}</td>
+                    <td>{{emp.phoneNumber}}</td>
+                </tr>
+
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+</div>
