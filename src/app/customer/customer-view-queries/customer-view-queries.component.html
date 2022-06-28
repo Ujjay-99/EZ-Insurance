@@ -9,8 +9,8 @@
               <th scope="col">Title</th>
               <th scope="col">Description</th>
   
-              <th scope="col">Action</th>
-              
+              <th scope="col">Reply</th>
+              <th scope="col">Reply time</th>
             </tr>
           </thead>
           <tbody>
@@ -18,10 +18,9 @@
               <td>{{Query.title}}</td>
   
           <td>{{Query.description}}</td>
-          <td><a class="btn-sm btn-success" (click)="reply(Query)">Reply </a></td>
-
           
-         
+          <td>{{Query.reply==null?'Reply Pending':Query.reply}}</td>
+          <td>{{Query.replyTime}}</td>
          
           
         </tr>

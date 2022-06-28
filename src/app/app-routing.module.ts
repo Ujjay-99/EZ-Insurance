@@ -44,6 +44,7 @@ import { CustomerDashboardComponent } from './customer/customer-dashboard/custom
 import { CustomerEnquiryComponent } from './customer/customer-enquiry/customer-enquiry.component';
 import { CustomerInsuranceDetailsComponent } from './customer/customer-insurance-details/customer-insurance-details.component';
 import { CustomerLoginComponent } from './customer/customer-login/customer-login.component';
+import { CustomerViewQueriesComponent } from './customer/customer-view-queries/customer-view-queries.component';
 import { CustomerComponent } from './customer/customer.component';
 import { EditCustomerComponent } from './customer/edit-customer/edit-customer.component';
 import { InsurancePolicyDetailComponent } from './customer/insurance-policy-detail/insurance-policy-detail.component';
@@ -101,6 +102,8 @@ const routes: Routes = [
     {path:'EditCustomer/:id',component:EditCustomerComponent},
 
     {path:'Enquiry',component:CustomerEnquiryComponent},
+    {path:'ViewQuery',component:CustomerViewQueriesComponent},
+
     
 
 

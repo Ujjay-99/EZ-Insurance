@@ -16,21 +16,21 @@
                                     </h1>
                                 </div>
                                 <div class="card-body">
-                                    <form [formGroup]="queryForm" (onsubmit)="submit()">
+                                    <form >
                                         <div class="form-floating mb-3">
-                                            <input type="number" formControlName="title" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" >
+                                            <input type="text" [(ngModel)]="title" name="title" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" >
                                             <label for="exampleFormControlInput1">Title</label>
                                             
                                         </div>
                                         
                                         <label  class="form-label">&nbsp; Note :</label>
                                         <div class="form mb-3">
-                                            <textarea class="form-control" formControlName="information" id="exampleFormControlTextarea1" rows="3" ></textarea>
+                                            <textarea class="form-control" [(ngModel)]="discription" name="discription" id="exampleFormControlTextarea1" rows="3" ></textarea>
                                           </div>
                                           
                                         <div class="mt-4 mb-0">
                                             <div class="d-grid">
-                                                <button class="btn btn-success btn-block">
+                                                <button class="btn btn-success btn-block" (click)="submit()">
                                                     Submit
                                                 </button>
                                             </div>

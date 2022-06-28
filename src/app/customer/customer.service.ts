@@ -2,11 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, tap } from 'rxjs';
 import { IAddPolicy } from '../models/IAddPolicy';
+import { IAddQuery } from '../models/IAddQuery';
 import { ICustomer } from '../models/ICustomer2';
 import { IInsuranceAccount } from '../models/IInsuranceAccount';
 import { IMakePayment } from '../models/IMakePayment';
 import { IPayment } from '../models/IPayment';
 import { IPolicy } from '../models/IPolicy';
+import { IQuery } from '../models/IQuery';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +20,9 @@ export class CustomerService {
 
   customerLogin(payload:any){
     return this.http.post(`http://localhost:5000/api/users/customer-login`, payload )
+  }
+  addQuery(payload:IAddQuery){
+    return this.http.post(`http://localhost:5000/api/Customers/addQuery`,payload)
   }
 
   getPaymentsByPolicyId(id:string){
@@ -55,5 +60,8 @@ export class CustomerService {
 
   addPayment(payload:IMakePayment){
     return this.http.post(`http://localhost:5000/api/Customers/addPayment`,payload);
+  }
+  viewQueriesByCustomerId(id:string){
+    return this.http.get<IQuery[]>(`http://localhost:5000/api/Customers/Query/getQueryByCustomerId/${id}`)
   }
 }

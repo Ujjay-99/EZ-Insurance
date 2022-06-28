@@ -15,9 +15,6 @@ export class WithdrawAmountComponent implements OnInit {
 
   agentId: string;
   account: IWithdrawAccount;
-
-  
-  
   withdraw() {
     if(this.withdrawAmount>this.availableAmount){
       Swal.fire('Ammount should be less than Available amount')

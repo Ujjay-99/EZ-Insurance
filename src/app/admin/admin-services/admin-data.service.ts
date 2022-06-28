@@ -13,6 +13,7 @@ import { IInsuracePlan } from '../../models/IInsurancePlan';
 import { IInsuranceType } from '../../models/IInsuranceType';
 import { IState } from '../../models/IState';
 import{IPayment} from 'src/app/models/IPayment'
+import { IQuery } from 'src/app/models/IQuery';
 
 @Injectable({
   providedIn: 'root'
@@ -177,6 +178,13 @@ export class AdminDataService {
   }
   viewPayments(){
     return this.http.get<IPayment[]>(`http://localhost:5000/api/Customers/getPayments`);
+  }
+
+  viewQueries(){
+    return this.http.get<IQuery[]> (`http://localhost:5000/api/Admin/Query/getQueries`)
+  }
+  reply(payload:IQuery){
+    return this.http.put(`http://localhost:5000/api/Admin/Query/replyToQuery`,payload)
   }
   // viewCustomerByAccountId(accountId:string){
   //   return this.http.get<ICustomer[]>(`http://localhost:5000/api/Customers/getAccount/${accountId}`)
