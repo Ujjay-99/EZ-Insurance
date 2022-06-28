@@ -12,6 +12,8 @@ import { AddTypeComponent } from './admin/add-type/add-type.component';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { AdminModuleModule } from './admin/admin-module/admin-module.module';
+import { AdminViewCustomerComponent } from './admin/admin-view-customer/admin-view-customer.component';
+import { AdminViewPaymentsComponent } from './admin/admin-view-payments/admin-view-payments.component';
 import { AdminComponent } from './admin/admin.component';
 import { EditAdminComponent } from './admin/edit-admin/edit-admin.component';
 import { ViewAgentComponent } from './admin/view-agent/view-agent.component';
@@ -58,6 +60,7 @@ import { EmployeeLoginComponent } from './employee/employee-login/employee-login
 import { EmployeeViewAgentComponent } from './employee/employee-view-agent/employee-view-agent.component';
 import { EmployeeViewCityComponent } from './employee/employee-view-city/employee-view-city.component';
 import { EmployeeViewCustomersComponent } from './employee/employee-view-customers/employee-view-customers.component';
+import { EmployeeViewPaymentsComponent } from './employee/employee-view-payments/employee-view-payments.component';
 import { EmployeeViewPlanComponent } from './employee/employee-view-plan/employee-view-plan.component';
 import { EmployeeViewSchemeComponent } from './employee/employee-view-scheme/employee-view-scheme.component';
 import { EmployeeViewStateComponent } from './employee/employee-view-state/employee-view-state.component';
@@ -153,6 +156,8 @@ const routes: Routes = [
     {path:'EditAgent/:id',component:EmployeeAddEditAgentComponent},
 
     {path:'ViewCustomers',component:EmployeeViewCustomersComponent},
+    {path:'ViewPayments',component:EmployeeViewPaymentsComponent},
+
 
 
 
@@ -190,8 +195,11 @@ const routes: Routes = [
     {path:'ViewEmployee',component:ViewEmployeeComponent  },
     {path:'EditEmployee/:id',component:AddEmployeeComponent  },
 
-    {path:'ViewCustomers',component:ViewCustomersComponent  },
+    {path:'ViewCustomers',component:AdminViewCustomerComponent  },
     {path:'AddCustomer',component:AddCustomerComponent  },
+
+    {path:'ViewPayments',component:AdminViewPaymentsComponent  },
+
 
     
     

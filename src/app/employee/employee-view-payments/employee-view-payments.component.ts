@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminDataService } from 'src/app/admin/admin-services/admin-data.service';
+import { IPayment } from 'src/app/models/IPayment';
 
 @Component({
   selector: 'app-employee-view-payments',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employee-view-payments.component.css']
 })
 export class EmployeeViewPaymentsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+ 
+  paymentsList:IPayment[]=[]
+  
+    constructor(private adminService:AdminDataService) { }
+  
+    ngOnInit(): void {
+      this.adminService.viewPayments().subscribe(payments=>{
+        console.log(payments);
+        this.paymentsList=payments
+        
+      })
+      
+    }
+  
   }
-
-}
+  

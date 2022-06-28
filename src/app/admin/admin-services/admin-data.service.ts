@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { retry } from 'rxjs';
 import { IAdmin } from 'src/app/models/IAdmin';
 import { ICustomer } from 'src/app/models/ICustomer2';
+import { IMakePayment } from 'src/app/models/IMakePayment';
 import { IUser } from 'src/app/models/IUser';
 import { ICity } from '../../models/ICity';
 import { IEmployee } from '../../models/IEmployee';
@@ -10,6 +11,7 @@ import { IInsuraceScheme } from '../../models/iinsurace-scheme';
 import { IInsuracePlan } from '../../models/IInsurancePlan';
 import { IInsuranceType } from '../../models/IInsuranceType';
 import { IState } from '../../models/IState';
+import{IPayment} from 'src/app/models/IPayment'
 
 @Injectable({
   providedIn: 'root'
@@ -172,4 +174,10 @@ export class AdminDataService {
   getUser(id:string){
     return this.http.get<IUser>(`http://localhost:5000/api/users/${id}`)
   }
+  viewPayments(){
+    return this.http.get<IPayment[]>(`http://localhost:5000/api/Customers/getPayments`);
+  }
+  // viewCustomerByAccountId(accountId:string){
+  //   return this.http.get<ICustomer[]>(`http://localhost:5000/api/Customers/getAccount/${accountId}`)
+  // }
 }
