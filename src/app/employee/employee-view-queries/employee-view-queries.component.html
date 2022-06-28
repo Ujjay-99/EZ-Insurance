@@ -1,0 +1,26 @@
+<div class="card m-4">
+    <div class="card-header">
+        <h4 class="mt-3">Your Queries</h4>
+        <hr>
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Customer ID</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Reply</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let Query of queries">
+                    <td>{{Query.title}}</td>
+                    <td>{{Query.customerId}}</td>
+                    <td>{{Query.description}}</td>
+                    <td>{{Query.reply == null ? "Not Replied" : Query.reply}}</td>
+                    <td><a class="btn-sm btn-success" *ngIf='Query.reply == null' (click)="reply(Query)">Reply </a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

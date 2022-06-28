@@ -1,121 +1,114 @@
 <div class="container">
     <h1>Insurance Policy Detail</h1>
-    <div class="container">
-        <h3>Customer Detail</h3>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-
-                    <th scope="col">Name</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Phone No</th>
-                    <th scope="col">LoginId</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{{customerDetail.firstName}} {{customerDetail.lastName}}</td>
-                    <td>{{customerDetail.address}}, <br>{{customerDetail.city}},<br>{{customerDetail.state}}</td>
-                    <td>{{customerDetail.email}}</td>
-                    <td>{{customerDetail.phoneNumber}}</td>
-                    <td>{{customerDetail.userName}}</td>
-
-
-
-                </tr>
-
-            </tbody>
-        </table>
+    <div class="card m-4">
+        <div class="card-header">
+            <h3>Customer Detail</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone No</th>
+                        <th scope="col">LoginId</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{customerDetail.firstName}} {{customerDetail.lastName}}</td>
+                        <td>{{customerDetail.address}}, <br>{{customerDetail.city}},<br>{{customerDetail.state}}</td>
+                        <td>{{customerDetail.email}}</td>
+                        <td>{{customerDetail.phoneNumber}}</td>
+                        <td>{{customerDetail.userName}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     <hr>
-    <div class="container">
-        <h3>Account Detail</h3>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-
-                    <th scope="col">Account No</th>
-                    <th scope="col">Insurance Type</th>
-                    <th scope="col">Insurance Scheme</th>
-                    <th scope="col">Date Created</th>
-                    <th scope="col">Maturity Date</th>
-                    <th scope="col">Premium Term</th>
-
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr >
-                    <td>{{policy.accountId}}</td>
-                    <td>{{policy.insuranceTypeTitle}}</td>
-                    <td>{{policy.insuranceSchemeTitle}}</td>
-                    <td>{{policy.createdAt | date:'short'}}</td>
-                    <td>{{policy.maturityDate | date:'short'}}</td>
-                    <td>{{policy.policyTerm}}</td>
-                </tr>
-
-            </tbody>
-        </table>
-    </div>
-
-    <hr>
-    <div class="container">
-        <h3>Premium Detail</h3>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">Total Preminum Amount</th>
-                    <th scope="col">Profit Ratio (in %)</th>
-                    <th scope="col">Sum Assured</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr >
-                    <td>{{policy.totalPremiumAmount}}</td>
-                    <td>{{policy.profitRatio}}%</td>
-                    <td>{{policy.sumAssured}}</td>
-                </tr>
-
-            </tbody>
-        </table>
+    <div class="card m-4">
+        <div class="card-header">
+            <h3>Account Detail</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Account No</th>
+                        <th scope="col">Insurance Type</th>
+                        <th scope="col">Insurance Scheme</th>
+                        <th scope="col">Date Created</th>
+                        <th scope="col">Maturity Date</th>
+                        <th scope="col">Premium Term</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{policy.accountId}}</td>
+                        <td>{{policy.insuranceTypeTitle}}</td>
+                        <td>{{policy.insuranceSchemeTitle}}</td>
+                        <td>{{policy.createdAt | date:'short'}}</td>
+                        <td>{{policy.maturityDate | date:'short'}}</td>
+                        <td>{{policy.policyTerm}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     <hr>
-    <div class="container">
-        <h3>Payment Detail</h3>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <!-- <th scope="col">Installment Number</th> -->
-                    <th scope="col">Installment Date</th>
-                    <th scope="col">Installment Amount</th>
-                    <th scope="col">Paid Date</th>
-                    <th scope="col">Payment Status</th>
-                    <!-- <th scope="col">Recipt</th> -->
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let payment of payments ; let i=index" >
-                    <!-- <td>{{(i + 1)}}</td> -->
-                    <td>{{policyDate | date:'dd/MM/yyyy'}}</td>
-                    <td>{{installmentAmount|number}}</td>
-                    <td>{{payment.paidDate | date:'short'}}</td>
-                    <td>{{payment.isPaid?'Paid':'Pending'}}</td>
-
-                </tr>
-                <tr *ngFor="let item of counter(); let index = index" (OnCreate)="updateDate()">
-                     <!-- <td>{{payments.length+index}}</td>   -->
-                     <td>{{policyDate| date:'dd/MM/yyyy'}}</td>  
-
-                     <td>{{installmentAmount|number}}</td>   
-                     <td>N/A</td>
-                     <td >Pending</td>
-                </tr>
-            </tbody>
-        </table>
-        <button class="btn btn-success" (click)="makePaymnet()">Pay Premium</button>
+    <div class="card m-4">
+        <div class="card-header">
+            <h3>Premium Detail</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Total Preminum Amount</th>
+                        <th scope="col">Profit Ratio (in %)</th>
+                        <th scope="col">Sum Assured</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{policy.totalPremiumAmount}}</td>
+                        <td>{{policy.profitRatio}}%</td>
+                        <td>{{policy.sumAssured}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-
+    <hr>
+    <div class="card m-4">
+        <div class="card-header">
+            <div>
+            <h3 class="mt-4">Payment Detail<button class="btn btn-success mb-4" style="float:right;" (click)="makePaymnet()">Pay Premium</button> </h3> 
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <!-- <th scope="col">Installment Number</th> -->
+                        <th scope="col">Installment Date</th>
+                        <th scope="col">Installment Amount</th>
+                        <th scope="col">Paid Date</th>
+                        <th scope="col">Payment Status</th>
+                        <!-- <th scope="col">Recipt</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let payment of payments ; let i=index">
+                        <!-- <td>{{(i + 1)}}</td> -->
+                        <td>{{policyDate | date:'dd/MM/yyyy'}}</td>
+                        <td>{{installmentAmount|number}}</td>
+                        <td>{{payment.paidDate | date:'short'}}</td>
+                        <td>{{payment.isPaid?'Paid':'Pending'}}</td>
+                    </tr>
+                    <tr *ngFor="let item of counter(); let index = index" (OnCreate)="updateDate()">
+                        <!-- <td>{{payments.length+index}}</td>   -->
+                        <td>{{policyDate| date:'dd/MM/yyyy'}}</td>
+                        <td>{{installmentAmount|number}}</td>
+                        <td>N/A</td>
+                        <td>Pending</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

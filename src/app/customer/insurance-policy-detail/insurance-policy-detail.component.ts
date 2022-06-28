@@ -54,7 +54,6 @@ export class InsurancePolicyDetailComponent implements OnInit {
     this.policyDate=this.policy.createdAt
 
     this.customerService.getPaymentsByPolicyId(this.policyId).subscribe((x) => {
-      
       this.success2(x);
     });
   }
@@ -97,6 +96,7 @@ export class InsurancePolicyDetailComponent implements OnInit {
       console.log(x);
       
     })
-    Swal.fire('Premium Paid Successfully ')
+    Swal.fire('Premium Paid Successfully.');
+    this.ngOnInit();
   }
 }

@@ -11,10 +11,24 @@ import { AgentService } from '../agent.service';
 export class WithdrawAmountComponent implements OnInit {
   availableAmount: number;
   withdrawAmount: number;
-
-
   agentId: string;
   account: IWithdrawAccount;
+
+  constructor(private agentService: AgentService) {}
+
+  ngOnInit(): void {
+    this.agentId = this.agentService.getAgentId();
+    console.log(this.agentId);
+
+    this.agentService
+      .getWithdrawAccountByAgentId(this.agentId)
+      .subscribe((x) => {
+        this.account = x;
+        this.availableAmount = x.totalAmount;
+        console.log(x);
+      });
+  }
+  
   withdraw() {
     if(this.withdrawAmount>this.availableAmount){
       Swal.fire('Ammount should be less than Available amount')
@@ -43,24 +57,8 @@ export class WithdrawAmountComponent implements OnInit {
           
         });
         Swal.fire('Successful!', 'Ammount has been withdrawn', 'success');
-        this.ngOnInit();
       }
     });
-  }
-  constructor(private agentService: AgentService) {
-    
-  }
-
-  ngOnInit(): void {
-    this.agentId = this.agentService.getAgentId();
-    console.log(this.agentId);
-
-    this.agentService
-      .getWithdrawAccountByAgentId(this.agentId)
-      .subscribe((x) => {
-        this.account = x;
-        this.availableAmount = x.totalAmount;
-        console.log(x);
-      });
+    this.ngOnInit();
   }
 }

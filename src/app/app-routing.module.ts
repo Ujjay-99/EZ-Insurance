@@ -64,6 +64,7 @@ import { EmployeeViewCityComponent } from './employee/employee-view-city/employe
 import { EmployeeViewCustomersComponent } from './employee/employee-view-customers/employee-view-customers.component';
 import { EmployeeViewPaymentsComponent } from './employee/employee-view-payments/employee-view-payments.component';
 import { EmployeeViewPlanComponent } from './employee/employee-view-plan/employee-view-plan.component';
+import { EmployeeViewQueriesComponent } from './employee/employee-view-queries/employee-view-queries.component';
 import { EmployeeViewSchemeComponent } from './employee/employee-view-scheme/employee-view-scheme.component';
 import { EmployeeViewStateComponent } from './employee/employee-view-state/employee-view-state.component';
 import { EmployeeViewTypeComponent } from './employee/employee-view-type/employee-view-type.component';
@@ -96,18 +97,11 @@ const routes: Routes = [
     {path:'ConfirmPlan',component:ConfirmPurchaseComponent},
     {path:'InsurancePolicyDetail/:id',component:InsurancePolicyDetailComponent},
 
-
-
     {path:'InsuranceDetails',component:CustomerInsuranceDetailsComponent},
     {path:'EditCustomer/:id',component:EditCustomerComponent},
 
     {path:'Enquiry',component:CustomerEnquiryComponent},
     {path:'ViewQuery',component:CustomerViewQueriesComponent},
-
-    
-
-
-
 
   ]  },
 
@@ -164,7 +158,7 @@ const routes: Routes = [
 
     {path:'ViewCustomers',component:EmployeeViewCustomersComponent},
     {path:'ViewPayments',component:EmployeeViewPaymentsComponent},
-
+    {path:'ViewQueries',component:EmployeeViewQueriesComponent},
 
 
 
