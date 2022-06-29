@@ -89,6 +89,9 @@ import { EmployeeViewQueriesComponent } from './employee/employee-view-queries/e
 import { AgentViewPoliciesComponent } from './agent/agent-view-policies/agent-view-policies.component';
 import { AgentViewPolicyDetailComponent } from './agent/agent-view-policy-detail/agent-view-policy-detail.component';
 import { CustomerUploadDocumentsComponent } from './customer/customer-upload-documents/customer-upload-documents.component';
+import { AdminViewDocumentsComponent } from './admin/admin-view-documents/admin-view-documents.component';
+import { AgentViewDocumentsComponent } from './agent/agent-view-documents/agent-view-documents.component';
+import { EmployeeViewDocumentsComponent } from './employee/employee-view-documents/employee-view-documents.component';
 // import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -121,7 +124,7 @@ import { CustomerUploadDocumentsComponent } from './customer/customer-upload-doc
     EmployeeComponent, 
     EditAdminComponent, 
     EmployeeViewStateComponent, 
-    EmployeeEditStateComponent, EmployeeViewCityComponent, EmployeeEditCityComponent, EmployeeViewTypeComponent, EmployeeEditTypeComponent, EmployeeViewSchemeComponent, EmployeeEditSchemeComponent, EmployeeEditPlanComponent, EmployeeViewPlanComponent, EmployeeViewAgentComponent, EmployeeAddEditAgentComponent, EditEmployeeComponent, AgentComponent, AgentLoginComponent, AgentDashboradComponent, ViewCustomersComponent, ViewCustomerPaymentsComponent, ViewCustomerClaimsComponent, ViewCommissionComponent, ViewCommissionWithdrawalComponent, WithdrawAmountComponent, MarketingComponent, EditAgentComponent, InsuranceDetailsComponent, PlanDetailsComponent, CustomerComponent, CustomerLoginComponent, CustomerDashboardComponent, PlansComponent, CustomerInsuranceDetailsComponent, EditCustomerComponent, AddEditCustomerComponent, AddCustomerComponent, SchemesByTitleComponent, PurchasePlanComponent, ConfirmPurchaseComponent, InsurancePolicyDetailComponent, OnCreateDirective, EmployeeViewCustomersComponent, EmployeeViewPaymentsComponent, AdminViewCustomerComponent, AdminViewPaymentsComponent, CustomerEnquiryComponent, CustomerViewQueriesComponent, EmployeeViewQueriesComponent, AgentViewPoliciesComponent, AgentViewPolicyDetailComponent, CustomerUploadDocumentsComponent
+    EmployeeEditStateComponent, EmployeeViewCityComponent, EmployeeEditCityComponent, EmployeeViewTypeComponent, EmployeeEditTypeComponent, EmployeeViewSchemeComponent, EmployeeEditSchemeComponent, EmployeeEditPlanComponent, EmployeeViewPlanComponent, EmployeeViewAgentComponent, EmployeeAddEditAgentComponent, EditEmployeeComponent, AgentComponent, AgentLoginComponent, AgentDashboradComponent, ViewCustomersComponent, ViewCustomerPaymentsComponent, ViewCustomerClaimsComponent, ViewCommissionComponent, ViewCommissionWithdrawalComponent, WithdrawAmountComponent, MarketingComponent, EditAgentComponent, InsuranceDetailsComponent, PlanDetailsComponent, CustomerComponent, CustomerLoginComponent, CustomerDashboardComponent, PlansComponent, CustomerInsuranceDetailsComponent, EditCustomerComponent, AddEditCustomerComponent, AddCustomerComponent, SchemesByTitleComponent, PurchasePlanComponent, ConfirmPurchaseComponent, InsurancePolicyDetailComponent, OnCreateDirective, EmployeeViewCustomersComponent, EmployeeViewPaymentsComponent, AdminViewCustomerComponent, AdminViewPaymentsComponent, CustomerEnquiryComponent, CustomerViewQueriesComponent, EmployeeViewQueriesComponent, AgentViewPoliciesComponent, AgentViewPolicyDetailComponent, CustomerUploadDocumentsComponent, AdminViewDocumentsComponent, AgentViewDocumentsComponent, EmployeeViewDocumentsComponent
   ],
   imports: [
     BrowserModule,

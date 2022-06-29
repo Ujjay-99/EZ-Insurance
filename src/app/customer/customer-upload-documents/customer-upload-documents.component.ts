@@ -21,7 +21,7 @@ export class CustomerUploadDocumentsComponent implements OnInit {
   imageUrl:any;
 
   base64textString:string | Blob;
-  constructor(private customerService:CustomerService, private formBuilder: FormBuilder, private sanitizer: DomSanitizer) { }
+  constructor(private customerService:CustomerService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.customerId = this.customerService.getCustomerId();

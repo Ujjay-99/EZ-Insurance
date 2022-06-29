@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { ICommission } from '../models/ICommission';
+import { ICustomer } from '../models/ICustomer';
+import { IDocument } from '../models/IDocument';
 import { IInsuranceAccount } from '../models/IInsuranceAccount';
 import { IPayment } from '../models/IPayment';
 import { IPolicy } from '../models/IPolicy';
@@ -14,7 +16,16 @@ export class AgentService {
 
   constructor(private http:HttpClient) { }
   agentId:string;
-
+  customer:ICustomer;
+  setCustomer(customer:ICustomer){
+    this.customer = customer;
+  }
+  getCustomer(){
+    return this.customer;
+  }
+  getDocumentsByCustomerId(id:string){
+    return this.http.get<IDocument[]>(`http://localhost:5000/api/admin/image/getImagesByBaseId/${id}` )
+  }
   agentLogin(payload:any){
     return this.http.post(`http://localhost:5000/api/users/agent-login`, payload )
   }

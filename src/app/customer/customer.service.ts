@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { catchError, Observable, tap } from 'rxjs';
 import { IAddPolicy } from '../models/IAddPolicy';
 import { IAddQuery } from '../models/IAddQuery';
-import { ICustomer } from '../models/ICustomer2';
+import { ICustomer } from '../models/ICustomer';
 import { IDocument } from '../models/IDocument';
 import { IInsuranceAccount } from '../models/IInsuranceAccount';
 import { IMakePayment } from '../models/IMakePayment';

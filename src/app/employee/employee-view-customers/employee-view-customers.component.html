@@ -13,7 +13,6 @@
             <th scope="col">PhoneNo</th>
             <th scope="col">Nominee</th>
             <th scope="col">Nominee Relation </th>
-            <th scope="col">Status</th>
             <th scope="col">Documets</th>        
             
           </tr>
@@ -27,8 +26,7 @@
             <td>{{Customer.phoneNumber}}</td>
             <td>{{Customer.nominee}}</td>
             <td>{{Customer.nomineeRelation}}</td>
-            <td>Active</td>
-            <td><a >View Documents</a></td>
+            <td><a class="btn btn-success" (click)="viewDocuments(Customer)">Documents</a></td>
           </tr>
         
         </tbody>

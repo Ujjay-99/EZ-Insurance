@@ -16,13 +16,15 @@ export class AdminViewCustomerComponent implements OnInit {
   constructor(private adminService:AdminDataService,private router:Router,
               ) { }
 
-
-  
   ngOnInit(): void {
- 
     this.adminService.viewCustomers().subscribe(customer=>{
       this.customerList=customer
     })
+  }
+
+  viewDocuments(customer:ICustomer){
+    this.adminService.setCustomer(customer);
+    this.router.navigate([`Admin/ViewDocuments`]);
   }
 }
 

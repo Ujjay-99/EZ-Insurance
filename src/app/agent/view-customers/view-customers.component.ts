@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminDataService } from 'src/app/admin/admin-services/admin-data.service';
-import { ICustomer } from 'src/app/models/ICustomer2';
+import { ICustomer } from 'src/app/models/ICustomer';
 import { first } from 'rxjs/operators';
 import Swal from 'sweetalert2'
 import { AgentService } from '../agent.service';
@@ -51,5 +51,10 @@ export class ViewCustomersComponent implements OnInit {
     this.adminService.viewCustomersByAgentId(this.agentId).subscribe(customer=>{
       this.customerList=customer
     })
+  }
+
+  viewDocuments(customer:ICustomer){
+    this.agentService.setCustomer(customer);
+    this.router.navigate([`Agent/ViewDocuments`]);
   }
 }

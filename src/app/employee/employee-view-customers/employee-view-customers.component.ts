@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminDataService } from 'src/app/admin/admin-services/admin-data.service';
-import { ICustomer } from 'src/app/models/ICustomer2';
+import { CustomerService } from 'src/app/customer/customer.service';
+import { ICustomer } from 'src/app/models/ICustomer';
 import Swal from 'sweetalert2';
+import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-employee-view-customers',
@@ -14,8 +16,7 @@ export class EmployeeViewCustomersComponent implements OnInit {
   agentId:string;
 
   customerList:ICustomer[]=[]
-  constructor(private adminService:AdminDataService,private router:Router,
-              ) { }
+  constructor(private adminService:AdminDataService,private router:Router, private employeeService:EmployeeService) { }
 
 
   
@@ -24,5 +25,10 @@ export class EmployeeViewCustomersComponent implements OnInit {
     this.adminService.viewCustomers().subscribe(customer=>{
       this.customerList=customer
     })
+  }
+
+  viewDocuments(customer:ICustomer){
+    this.employeeService.setCustomer(customer);
+    this.router.navigate([`Employee/ViewDocuments`]);
   }
 }

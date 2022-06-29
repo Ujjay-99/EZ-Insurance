@@ -13,6 +13,7 @@ import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { AdminModuleModule } from './admin/admin-module/admin-module.module';
 import { AdminViewCustomerComponent } from './admin/admin-view-customer/admin-view-customer.component';
+import { AdminViewDocumentsComponent } from './admin/admin-view-documents/admin-view-documents.component';
 import { AdminViewPaymentsComponent } from './admin/admin-view-payments/admin-view-payments.component';
 import { AdminComponent } from './admin/admin.component';
 import { EditAdminComponent } from './admin/edit-admin/edit-admin.component';
@@ -27,6 +28,7 @@ import { ViewTypeComponent } from './admin/view-type/view-type.component';
 import { AddEditCustomerComponent } from './agent/add-edit-customer/add-edit-customer.component';
 import { AgentDashboradComponent } from './agent/agent-dashborad/agent-dashborad.component';
 import { AgentLoginComponent } from './agent/agent-login/agent-login.component';
+import { AgentViewDocumentsComponent } from './agent/agent-view-documents/agent-view-documents.component';
 import { AgentViewPoliciesComponent } from './agent/agent-view-policies/agent-view-policies.component';
 import { AgentViewPolicyDetailComponent } from './agent/agent-view-policy-detail/agent-view-policy-detail.component';
 import { AgentComponent } from './agent/agent.component';
@@ -65,6 +67,7 @@ import { EmployeeLoginComponent } from './employee/employee-login/employee-login
 import { EmployeeViewAgentComponent } from './employee/employee-view-agent/employee-view-agent.component';
 import { EmployeeViewCityComponent } from './employee/employee-view-city/employee-view-city.component';
 import { EmployeeViewCustomersComponent } from './employee/employee-view-customers/employee-view-customers.component';
+import { EmployeeViewDocumentsComponent } from './employee/employee-view-documents/employee-view-documents.component';
 import { EmployeeViewPaymentsComponent } from './employee/employee-view-payments/employee-view-payments.component';
 import { EmployeeViewPlanComponent } from './employee/employee-view-plan/employee-view-plan.component';
 import { EmployeeViewQueriesComponent } from './employee/employee-view-queries/employee-view-queries.component';
@@ -126,6 +129,7 @@ const routes: Routes = [
     {path:'Marketing',component:MarketingComponent},
     {path:'ViewPolicies',component:AgentViewPoliciesComponent},
     {path:'ViewPolicyDetail',component:AgentViewPolicyDetailComponent},
+    {path:'ViewDocuments',component:AgentViewDocumentsComponent  },
 
 
 
@@ -166,6 +170,7 @@ const routes: Routes = [
     {path:'ViewCustomers',component:EmployeeViewCustomersComponent},
     {path:'ViewPayments',component:EmployeeViewPaymentsComponent},
     {path:'ViewQueries',component:EmployeeViewQueriesComponent},
+    {path:'ViewDocuments',component:EmployeeViewDocumentsComponent},
 
 
 
@@ -207,13 +212,8 @@ const routes: Routes = [
     {path:'AddCustomer',component:AddCustomerComponent  },
 
     {path:'ViewPayments',component:AdminViewPaymentsComponent  },
+    {path:'ViewDocuments',component:AdminViewDocumentsComponent  },
 
-
-    
-    
-
-
-    
     {path:'ViewQueries',component:ViewQueriesComponent}
   ]
   }

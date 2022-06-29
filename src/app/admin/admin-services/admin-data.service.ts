@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { retry } from 'rxjs';
 import { IAdmin } from 'src/app/models/IAdmin';
 import { IAgent } from 'src/app/models/IAgent';
-import { ICustomer } from 'src/app/models/ICustomer2';
+import { ICustomer } from 'src/app/models/ICustomer';
 import { IMakePayment } from 'src/app/models/IMakePayment';
 import { IUser } from 'src/app/models/IUser';
 import { ICity } from '../../models/ICity';
@@ -14,6 +14,7 @@ import { IInsuranceType } from '../../models/IInsuranceType';
 import { IState } from '../../models/IState';
 import{IPayment} from 'src/app/models/IPayment'
 import { IQuery } from 'src/app/models/IQuery';
+import { IDocument } from 'src/app/models/IDocument';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,19 @@ import { IQuery } from 'src/app/models/IQuery';
 export class AdminDataService {
 
   constructor(private http:HttpClient) { }
-
+  customer:ICustomer;
+  setCustomer(customer:ICustomer){
+    this.customer = customer;
+  }
+  getCustomer(){
+    return this.customer;
+  }
+  getDocumentsByCustomerId(id:string){
+    return this.http.get<IDocument[]>(`http://localhost:5000/api/admin/image/getImagesByBaseId/${id}` )
+  }
+  deleteDocument(id:string){
+    return this.http.delete(`http://localhost:5000/api/admin/image/deleteDocument/${id}` )
+  }
   adminlogin(payload:any){
     return this.http.post(`http://localhost:5000/api/users/admin-login`, payload )
   }
