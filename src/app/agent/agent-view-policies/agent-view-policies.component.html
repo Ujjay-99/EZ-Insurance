@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="card m-4">
+    <div class="card-header">
+        <h3>Account Detail</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Account No</th>
+                    <th scope="col">Insurance Type</th>
+                    <th scope="col">Insurance Scheme</th>
+                    <th scope="col">Date Created</th>
+                    <th scope="col">Maturity Date</th>
+                    <th scope="col">Premium Term</th>
+                    <th scope="col">View</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let policy of policiesList">
+                    <td>{{policy.accountId}}</td>
+                    <td>{{policy.insuranceTypeTitle}}</td>
+                    <td>{{policy.insuranceSchemeTitle}}</td>
+                    <td>{{policy.createdAt | date:'short'}}</td>
+                    <td>{{policy.maturityDate | date:'short'}}</td>
+                    <td>{{policy.policyTerm}}</td>
+              <td><a class="btn-sm btn-success" (click)="viewPolicy(policy)">View</a>
+
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>  
+</div>

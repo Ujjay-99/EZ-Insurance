@@ -5,43 +5,19 @@
       <table class="table table-hover table-bordered">
           <thead>
             <tr>      
-              <th scope="col">Customer</th>
-              <th scope="col">Account no.</th>
-  
-              <th scope="col">Insurance Type</th>
-              <th scope="col">Insurance Scheme</th>
-              <th scope="col">Date Create</th>
-              <th scope="col">Maturity Date</th>
-              <th scope="col">Policy Term</th>
-              <th scope="col">Total Premium Amount</th>
-              <th scope="col">Profit Ratio</th>
-              <th scope="col">Sum Assured</th>
-              <th scope="col">View</th>
-
-
-
-
-
-                     
+              <th scope="col">Customer Id</th>
+              <th scope="col">Account no.</th>  
               
+              <th scope="col">View</th>
             </tr>
           </thead>
           <tbody>
-            <!-- <tr *ngFor="let plan of planList">
-            
-              
-              <td><h3>{{plan.insuranceTypeTitle}}</h3></td>
-              <td>{{plan.insuranceSchemeTitle}}</td>
-              <td>{{plan.policyTermMin}}</td>
-              <td>{{plan.policyTermMax}}</td>
-              <td>{{plan.ageMin}}</td>
-              <td>{{plan.ageMax}}</td>
-              <td>{{plan.investmentMin}}</td>
-              <td>{{plan.investmentMax}}</td>
-              <td>{{plan.profitRatio}}</td>
-              <td>{{plan.isActive ? "Active" : "InActive"}}</td>
-              <td><a class="btn-sm btn-success" (click)="editPlan(plan.id)">Edit</a> | <a class="btn-sm btn-danger" (click)="deletePlan(plan.id)">Delete</a></td>
-            </tr> -->
+            <tr *ngFor="let account of accountsList">
+              <td>{{account.customerId}}</td>
+
+              <td>{{account.id}}</td>
+              <td><a class="btn-sm btn-success" (click)="viewPolicies(account)">View</a>
+            </tr>
           
           </tbody>
         </table>

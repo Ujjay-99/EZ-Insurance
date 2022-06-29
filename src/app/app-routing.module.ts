@@ -27,6 +27,8 @@ import { ViewTypeComponent } from './admin/view-type/view-type.component';
 import { AddEditCustomerComponent } from './agent/add-edit-customer/add-edit-customer.component';
 import { AgentDashboradComponent } from './agent/agent-dashborad/agent-dashborad.component';
 import { AgentLoginComponent } from './agent/agent-login/agent-login.component';
+import { AgentViewPoliciesComponent } from './agent/agent-view-policies/agent-view-policies.component';
+import { AgentViewPolicyDetailComponent } from './agent/agent-view-policy-detail/agent-view-policy-detail.component';
 import { AgentComponent } from './agent/agent.component';
 import { EditAgentComponent } from './agent/edit-agent/edit-agent.component';
 import { InsuranceDetailsComponent } from './agent/insurance-details/insurance-details.component';
@@ -121,6 +123,10 @@ const routes: Routes = [
     {path:'WithdrawCommssion',component:WithdrawAmountComponent},
 
     {path:'Marketing',component:MarketingComponent},
+    {path:'ViewPolicies',component:AgentViewPoliciesComponent},
+    {path:'ViewPolicyDetail',component:AgentViewPolicyDetailComponent},
+
+
 
 
 
