@@ -20,7 +20,7 @@ export class ViewQueriesComponent implements OnInit {
       
       Swal.fire({
       title: 'Add Your Reply',
-      input: 'text',
+      input: 'textarea',
       inputAttributes: {
         autocapitalize: 'off'
       },
@@ -52,6 +52,7 @@ export class ViewQueriesComponent implements OnInit {
           title: `Replied Succesfully`,
          
         })
+        this.ngOnInit();
       }
     })
   }

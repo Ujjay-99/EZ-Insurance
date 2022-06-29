@@ -20,7 +20,7 @@ export class EmployeeViewQueriesComponent implements OnInit {
       
       Swal.fire({
       title: 'Add Your Reply',
-      input: 'text',
+      input: 'textarea',
       inputAttributes: {
         autocapitalize: 'off'
       },

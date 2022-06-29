@@ -1,4 +1,3 @@
-
 <div id="layoutAuthentication_content">
     <main>
         <div class="container">
@@ -14,9 +13,10 @@
                         <div class="card-body">
                             <form [formGroup]="typeForm" (ngSubmit)="onSubmit()">
                                 <div class="form-floating mb-3">
-                                    <input type="text" formControlName="typeTitle" class="form-control" placeholder="typeTitle"/>
+                                    <input type="text" formControlName="typeTitle" class="form-control"
+                                        placeholder="typeTitle" />
                                     <label for="sName">Insurance Type</label>
-                                    <div *ngIf="submitted && f.typeName.errors" >
+                                    <div *ngIf="submitted && f.typeName.errors">
                                         <span *ngIf="f.typeName.errors.required">&nbsp; Type Name is required</span>
                                     </div>
                                 </div>
@@ -24,29 +24,31 @@
                                     
                                     <input class="form-control" id="inputEmail" type="File" accept="image/x-png,image/gif,image/jpeg" [(ngModel)]="img" name="img"/>
                                 </div>  -->
-                               
-                                  <div class="form-group">
+
+                                <div class="form-group">
                                     <label for="gender">Status</label>
                                     <div>
-                                      <input id="active" type="radio" [value]="true" name="status" formControlName="status">
-                                      <label for="active">Active</label>
-                                   </div>
-                          
-                                   <div>
-                                      <input id="active" type="radio" [value]="false" name="status" formControlName="status">
-                                      <label for="active">Inactive</label>
-                                   </div>
-                                      
-                                    
+                                        <input id="active" type="radio" [value]="true" name="status"
+                                            formControlName="status">
+                                        <label for="active">Active</label>
+                                    </div>
+
+                                    <div>
+                                        <input id="active" type="radio" [value]="false" name="status"
+                                            formControlName="status">
+                                        <label for="active">Inactive</label>
+                                    </div>
+
+
                                 </div>
-                                
+
                                 <div class="mt-4 mb-0">
                                     <div class="d-grid">
-                                        <button  class="btn btn-success btn-block">                                            
+                                        <button class="btn btn-success btn-block">
                                             Save
                                         </button>
                                     </div>
-                                    
+
                                 </div>
                             </form>
                         </div>

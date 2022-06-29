@@ -4,11 +4,13 @@ import { catchError, Observable, tap } from 'rxjs';
 import { IAddPolicy } from '../models/IAddPolicy';
 import { IAddQuery } from '../models/IAddQuery';
 import { ICustomer } from '../models/ICustomer2';
+import { IDocument } from '../models/IDocument';
 import { IInsuranceAccount } from '../models/IInsuranceAccount';
 import { IMakePayment } from '../models/IMakePayment';
 import { IPayment } from '../models/IPayment';
 import { IPolicy } from '../models/IPolicy';
 import { IQuery } from '../models/IQuery';
+import { IUploadDocument } from '../models/IUploadDocument';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +20,17 @@ export class CustomerService {
 
   constructor(private http:HttpClient) { }
 
+  uploadDocument(payload:IUploadDocument){
+    console.log("payload in service: ", payload);
+    return this.http.post<IUploadDocument>(`http://localhost:5000/api/admin/image/uploadDocument`, payload )
+  }
+
+  deleteDocument(id:string){
+    return this.http.delete(`http://localhost:5000/api/admin/image/deleteDocument/${id}` )
+  }
+  getDocumentsByCustomerId(id:string){
+    return this.http.get<IDocument[]>(`http://localhost:5000/api/admin/image/getImagesByBaseId/${id}` )
+  }
   customerLogin(payload:any){
     return this.http.post(`http://localhost:5000/api/users/customer-login`, payload )
   }

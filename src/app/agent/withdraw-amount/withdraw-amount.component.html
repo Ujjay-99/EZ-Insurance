@@ -8,20 +8,19 @@
                             <h1 class="text-center font-weight-light my-4">
                                 Withdraw Amount
                             </h1>
+                            <label for="sName"><h3>Amount Available to Withdraw</h3></label>
+                                <div style="float:right;" class="form-floating mb-3">
+                                        <h1><b>₹ {{availableAmount | number}}</b></h1>
+                                </div>
                         </div>
                         <div class="card-body">
                             <form>
 
-                                <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" placeholder="statename"
-                                        [value]="availableAmount" readonly />
-                                    <label for="sName">Amount Available to Withdraw</label>
-
-                                </div>
+                                
                                 <div class="form-floating mb-3">
                                     <input type="number" class="form-control" placeholder="statename"
                                         name="withdawAmount" [(ngModel)]="withdrawAmount" />
-                                    <label for="sName">Enter Amunt to withdraw</label>
+                                    <label for="sName">Enter Amount to withdraw</label>
 
                                 </div>
                                 <div class="mt-4 mb-0">

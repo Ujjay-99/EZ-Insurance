@@ -46,6 +46,7 @@ import { CustomerDashboardComponent } from './customer/customer-dashboard/custom
 import { CustomerEnquiryComponent } from './customer/customer-enquiry/customer-enquiry.component';
 import { CustomerInsuranceDetailsComponent } from './customer/customer-insurance-details/customer-insurance-details.component';
 import { CustomerLoginComponent } from './customer/customer-login/customer-login.component';
+import { CustomerUploadDocumentsComponent } from './customer/customer-upload-documents/customer-upload-documents.component';
 import { CustomerViewQueriesComponent } from './customer/customer-view-queries/customer-view-queries.component';
 import { CustomerComponent } from './customer/customer.component';
 import { EditCustomerComponent } from './customer/edit-customer/edit-customer.component';
@@ -104,7 +105,7 @@ const routes: Routes = [
 
     {path:'Enquiry',component:CustomerEnquiryComponent},
     {path:'ViewQuery',component:CustomerViewQueriesComponent},
-
+    {path:'UploadDocuments',component:CustomerUploadDocumentsComponent},
   ]  },
 
   {path:'Agent',component:AgentComponent,children:[

@@ -34,7 +34,6 @@ export class WithdrawAmountComponent implements OnInit {
       Swal.fire('Ammount should be less than Available amount')
       return
     }
-    
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -55,10 +54,10 @@ export class WithdrawAmountComponent implements OnInit {
         this.agentService.withdrawAmount(payload).subscribe(x=>{
           console.log("Withdrawd");
           
+          this.ngOnInit();
         });
-        Swal.fire('Successful!', 'Ammount has been withdrawn', 'success');
+        Swal.fire('Successful!', 'Amount has been withdrawn', 'success');
       }
     });
-    this.ngOnInit();
   }
 }
