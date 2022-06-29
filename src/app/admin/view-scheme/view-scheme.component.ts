@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminDataService } from '../admin-services/admin-data.service';
 import { IInsuraceScheme } from '../../models/iinsurace-scheme';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-view-scheme',
@@ -10,7 +11,7 @@ import { IInsuraceScheme } from '../../models/iinsurace-scheme';
 })
 export class ViewSchemeComponent implements OnInit {
 
-  schemeList:IInsuraceScheme[]=[]
+  schemeList:IInsuraceScheme[];
   constructor(private adminService:AdminDataService,private router:Router) { 
   }
   deleteScheme(id: string) {
@@ -25,13 +26,14 @@ export class ViewSchemeComponent implements OnInit {
       },
       complete: () => console.log('deleted'),
     });
-    alert('Scheme Deleted');
+    Swal.fire('Scheme Deleted');
     this.ngOnInit();
     // location.reload();
   }
-  editScheme(id: string) {
-    
-    this.router.navigate([`Admin/EditScheme/${id}`])    
+  editScheme(scheme:IInsuraceScheme) {
+    this.adminService.setScheme(scheme);
+    console.log("1", scheme);
+    this.router.navigate([`Admin/EditScheme/${scheme.id}`])    
   }
 
   ngOnInit(): void {

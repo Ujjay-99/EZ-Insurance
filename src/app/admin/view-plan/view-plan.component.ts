@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminDataService } from '../admin-services/admin-data.service';
 import { IInsuracePlan } from '../../models/IInsurancePlan';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-view-plan',
@@ -14,13 +15,10 @@ export class ViewPlanComponent implements OnInit {
   constructor(private adminService:AdminDataService,private router:Router) { }
 
   editPlan(id:string){
-    console.log(id);
     this.router.navigate([`Admin/EditPlan/${id}`])   
   }
 
   deletePlan(id: string) {
-    console.log(id);
-
     this.adminService.deletePlan(id).subscribe({
       next: (response) => {
         console.log(response);
@@ -30,18 +28,14 @@ export class ViewPlanComponent implements OnInit {
       },
       complete: () => console.log('deleted'),
     });
-    alert('Plan Deleted');
+    Swal.fire('Plan Deleted');
     this.ngOnInit();
-    // location.reload();
   }
 
   ngOnInit(): void {
     this.adminService.viewPlans().subscribe(plans=>{
-      console.log(plans);
-      
-      this.planList=plans
+      this.planList=plans;
     })
-    console.log(this.planList);
   }
 
 }

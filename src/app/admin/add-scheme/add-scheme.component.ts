@@ -14,26 +14,19 @@ import Swal from 'sweetalert2'
 })
 export class AddSchemeComponent implements OnInit {
   schemeForm: FormGroup;
-  id: string;
+  scheme:IInsuraceScheme;
   isAddMode: boolean; 
-  
   submitted = false;
-  // iType:string=""
-  // iScheme:string=""
-  // regCom:number=0
-  // installCom:number=0
-  // note:string=""
-  // status:boolean=true
+  id:string;
+
   typeList:IInsuranceType[]=[]
   constructor(private adminService: AdminDataService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute) { 
     this.adminService.viewType().subscribe(type=>{
       console.log(type);
-      
       this.typeList=type
     })
-    // console.log(this.typeList);    
     
   }
   get f() {
@@ -83,7 +76,7 @@ export class AddSchemeComponent implements OnInit {
 
   updateScheme(){
     const schemeData:IInsuraceScheme={    
-      id:this.id,
+      id:this.scheme.id,
       insuranceTypeTitle:this.schemeForm.controls['insuranceTypeTitle'].value,
       insuranceSchemeTitle:this.schemeForm.controls['insuranceSchemeTitle'].value,
       commissionNewRegistration:this.schemeForm.controls['commissionNewRegistration'].value,
@@ -109,6 +102,8 @@ export class AddSchemeComponent implements OnInit {
   }
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
+    this.scheme = this.adminService.getScheme();
+    console.log("2", this.scheme);
     this.isAddMode = !this.id;
     this.schemeForm = this.formBuilder.group({
       insuranceTypeTitle:['',Validators.required],
@@ -120,7 +115,7 @@ export class AddSchemeComponent implements OnInit {
     });
     if (!this.isAddMode) {
       this.adminService
-        .viewSchemeById(this.id)
+        .viewSchemeById(this.scheme.id)
         .pipe(first())
         .subscribe((x) => this.schemeForm.patchValue(x));
     }

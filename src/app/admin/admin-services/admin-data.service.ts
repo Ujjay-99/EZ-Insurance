@@ -15,6 +15,7 @@ import { IState } from '../../models/IState';
 import{IPayment} from 'src/app/models/IPayment'
 import { IQuery } from 'src/app/models/IQuery';
 import { IDocument } from 'src/app/models/IDocument';
+import { ISchemeWithImage } from 'src/app/models/ISchemeWithImage';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,8 @@ export class AdminDataService {
 
   constructor(private http:HttpClient) { }
   customer:ICustomer;
+  scheme:IInsuraceScheme;
+
   setCustomer(customer:ICustomer){
     this.customer = customer;
   }
@@ -34,6 +37,13 @@ export class AdminDataService {
   }
   deleteDocument(id:string){
     return this.http.delete(`http://localhost:5000/api/admin/image/deleteDocument/${id}` )
+  }
+
+  setScheme(scheme:IInsuraceScheme){
+    this.scheme = scheme;
+  }
+  getScheme(){
+    return this.scheme;
   }
   adminlogin(payload:any){
     return this.http.post(`http://localhost:5000/api/users/admin-login`, payload )
@@ -118,6 +128,9 @@ export class AdminDataService {
   viewScheme(){
     return this.http.get<IInsuraceScheme[]>(`http://localhost:5000/api/Admin/InsuranceScheme/getSchemes`)
   }
+  viewSchemesWithImage(){
+    return this.http.get<ISchemeWithImage[]>(`http://localhost:5000/api/Admin/InsuranceScheme/getSchemes`)
+  }
   viewSchemeById(id:string){
     return this.http.get<IInsuraceScheme>(`http://localhost:5000/api/Admin/InsuranceScheme/getScheme/${id}`)
   }
@@ -132,11 +145,10 @@ export class AdminDataService {
   }
   updatePlan(data:IInsuracePlan){
     console.log(data);
-    
     return this.http.put(`http://localhost:5000/api/Admin/InsurancePlan/update`, data )
   }
   viewSchemesByType(type:string){
-    return this.http.get<IInsuraceScheme[]>(`http://localhost:5000/api/Admin/InsuranceScheme/getSchemes/${type}`)
+    return this.http.get<ISchemeWithImage[]>(`http://localhost:5000/api/Admin/InsuranceScheme/getSchemes/${type}`)
   }
   viewAdmin(){
     return this.http.get<IAdmin[]>(`http://localhost:5000/api/Users/getUsersByRoles/Admin`)

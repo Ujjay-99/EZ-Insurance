@@ -15,6 +15,8 @@ export class EmployeeEditTypeComponent implements OnInit {
   id: string;
   isAddMode: boolean;
   submitted = false;
+  base64textString:string | Blob;
+
   constructor(
     private adminService: AdminDataService,
     private formBuilder: FormBuilder,
@@ -35,11 +37,26 @@ export class EmployeeEditTypeComponent implements OnInit {
     }
   }
 
-  
+  onFileChange(e:any){
+    var files = e.target.files;
+    var file = files[0];
+    
+    if (files && file) {
+        var reader = new FileReader();
+        reader.onload =this.handleReaderLoaded.bind(this);
+        reader.readAsBinaryString(file);
+    }
+  }
+
+  handleReaderLoaded(e:any) {
+      var binaryString = e.target.result;
+      this.base64textString= btoa(binaryString);
+  }
 
   private editType() {
     const typeData: IInsuranceType = {
       id: this.id,
+      typeImage:this.base64textString,
       typeTitle: this.typeForm.controls['typeTitle'].value,
       isActive: this.typeForm.controls['status'].value,
     };
@@ -60,6 +77,7 @@ export class EmployeeEditTypeComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     this.isAddMode = !this.id;
     this.typeForm = this.formBuilder.group({
+      typeImage: ['',Validators.required],
       typeTitle: ['', Validators.required],
       status: [null, Validators.required],
     });
