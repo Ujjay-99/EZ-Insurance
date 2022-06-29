@@ -11,6 +11,13 @@
                             <input type="text" class="form-control" [(ngModel)]="title">
                             <label for="inputEmail">Document</label>
                         </div>
+                        <!-- <label>State</label>
+                                <select formControlName="stateName" class="form-select" [(ngModel)]="title">
+                                    <option selected>Select Document</option>
+                                    <option value="1">Aadhar Card</option>
+                                    <option value="2">Pan Card</option>
+                                    <option value="3">Driving Licence</option>
+                                </select> -->
                         <div class="form mb-3">
                             <input (change)="onFileChange($event)" class="form-control" id="inputEmail" type="File"
                                 accept="image/x-png,image/gif,image/jpeg" />

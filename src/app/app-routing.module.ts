@@ -90,6 +90,8 @@ const routes: Routes = [
   {path:'AboutUs',component:AboutUsComponent  },
   {path:'CustomerLogin',component:CustomerLoginComponent  },
 
+
+
   {path:'PlanDetail/:id',component:PlanDetailsComponent  },
 
   {path:'SchemesByTitle/:title',component:SchemesByTitleComponent  },

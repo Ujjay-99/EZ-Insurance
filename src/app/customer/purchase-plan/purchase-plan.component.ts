@@ -5,6 +5,7 @@ import { AdminDataService } from 'src/app/admin/admin-services/admin-data.servic
 import { IAddPolicy } from 'src/app/models/IAddPolicy';
 import { IInsuraceScheme } from 'src/app/models/iinsurace-scheme';
 import { IInsuracePlan } from 'src/app/models/IInsurancePlan';
+import Swal from 'sweetalert2';
 import { CustomerService } from '../customer.service';
 
 @Component({
@@ -70,9 +71,32 @@ export class PurchasePlanComponent implements OnInit {
       }
       console.log(payload);
       
-      this.customerService.policyPurchase(payload).subscribe(x=>{
-        console.log(x);
+      
+
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "Do You Purchase This policy?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Purchase',
+        preConfirm:(login)=>{
+          this.customerService.policyPurchase(payload).subscribe(x=>{
+            console.log(x);
+            
+          })
+        }
         
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Purchased',
+            'Go to Insurance Details to View the Policy',
+            'success'
+          )
+        }
+        this.router.navigate([`Customer/CustomerDashboard`])
       })
 
       // this.router.navigate([`Customer/ConfirmPlan`])

@@ -1,25 +1,42 @@
-<section class="d-flex h-100 w-100 align-items-center justify-content-center ">
-    <div class="px-4 py-5 text-center h-100" style="background-color: hsl(0, 0%, 96%)">
-    <div class="container">
-            <h1 class="my-5 fw-bold ls-tight">
-            <span class="text-primary"> Agent Login</span>
-            </h1>
-            <div class="card">
-            <div class="card-body">
-                <form [formGroup]="loginForm">
-                <div class="form-outline mb-4">
-                    <input type="text" id="form3Example3" class="form-control" name="username" formControlName="username"/>
-                    <label class="form-label" for="form3Example3">Username</label>
-                </div>
-                <div class="form-outline mb-4">
-                    <input type="password" id="form3Example4" class="form-control" name="password" formControlName="password" />
-                    <label class="form-label" for="form3Example4">Password</label>
-                </div>
-                <button type="submit" class="btn btn-primary btn-block mb-4" (click)="login()">Login</button>
-                </form>
-            </div>
-            </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container px-5">
+<a class="navbar-brand" routerLink=""><b>EZ Insurance </b> </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" routerLink="">Home</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="AboutUs">About</a></li>             
+            </ul>
         </div>
-        </div>
-</section>
+    </div>
+</nav>
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <form [formGroup]="loginForm">
+                            <div class="mb-md-5 mt-md-4 pb-5">
+                                <h2 class="fw-bold mb-2 text-uppercase">Agent Login</h2>
+                                <div class="form-outline form-white mb-4">
+                                    <label class="form-label" for="typeEmailX">Username</label>
+                                    <input type="text" id="typeEmailX" formControlName="username"
+                                        class="form-control form-control-lg" placeholder="Enter Username" />
+                                </div>
+                                <div class="form-outline form-white mb-4">
+                                    <label class="form-label" for="typePasswordX">Password</label>
+                                    <input type="password" id="typePasswordX" formControlName="password"
+                                        class="form-control form-control-lg" placeholder="Enter Password" />
+                                </div>
+                                <button class="btn btn-outline-light btn-lg px-5" type="submit"
+                                    (click)="login()">Login</button>
 
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
