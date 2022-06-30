@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminDataService } from 'src/app/admin/admin-services/admin-data.service';
 import { IInsuracePlan } from 'src/app/models/IInsurancePlan';
+import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-employee-view-plan',
@@ -11,7 +12,7 @@ import { IInsuracePlan } from 'src/app/models/IInsurancePlan';
 export class EmployeeViewPlanComponent implements OnInit {
 
   planList:IInsuracePlan[]=[]
-  constructor(private adminService:AdminDataService,private router:Router) { }
+  constructor(private adminService:AdminDataService,private router:Router,private empService:EmployeeService) { }
 
   editPlan(id:string){
     console.log(id);
@@ -21,7 +22,7 @@ export class EmployeeViewPlanComponent implements OnInit {
   deletePlan(id: string) {
     console.log(id);
 
-    this.adminService.deletePlan(id).subscribe({
+    this.empService.deletePlan(id).subscribe({
       next: (response) => {
         console.log(response);
       },
@@ -36,7 +37,7 @@ export class EmployeeViewPlanComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.adminService.viewPlans().subscribe(plans=>{
+    this.empService.viewPlans().subscribe(plans=>{
       console.log(plans);
       
       this.planList=plans

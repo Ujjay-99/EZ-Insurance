@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AdminDataService } from 'src/app/admin/admin-services/admin-data.service';
 import { IInsuranceType } from 'src/app/models/IInsuranceType';
 import Swal from 'sweetalert2';
+import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-employee-view-type',
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class EmployeeViewTypeComponent implements OnInit {
   typeList: IInsuranceType[] = [];
-  constructor(private adminService: AdminDataService ,private route:ActivatedRoute,private router:Router) {
+  constructor(private adminService: AdminDataService ,private route:ActivatedRoute,private router:Router,private empService:EmployeeService) {
     
   }
   editType(id: string) {
@@ -32,7 +33,7 @@ export class EmployeeViewTypeComponent implements OnInit {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.adminService.deleteType(id).subscribe({
+        this.empService.deleteType(id).subscribe({
           next: (response) => {
             console.log(response);
           },
@@ -52,7 +53,7 @@ export class EmployeeViewTypeComponent implements OnInit {
     // location.reload();
   }
   ngOnInit(): void {
-    this.adminService.viewType().subscribe((type) => {
+    this.empService.viewType().subscribe((type) => {
       console.log(type);
 
       this.typeList = type;

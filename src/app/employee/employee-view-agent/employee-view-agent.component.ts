@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AdminDataService } from 'src/app/admin/admin-services/admin-data.service';
 import { IEmployee } from 'src/app/models/IEmployee';
 import Swal from 'sweetalert2';
+import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-employee-view-agent',
@@ -12,7 +13,7 @@ import Swal from 'sweetalert2';
 export class EmployeeViewAgentComponent implements OnInit {
 
   employeeList:IEmployee[]=[]
-  constructor(private adminService:AdminDataService,private router:Router) { }
+  constructor(private adminService:AdminDataService,private router:Router,private empService:EmployeeService) { }
   editEmployee(id: string) {
     console.log(id);
     this.router.navigate([`Employee/EditAgent/${id}`])    
@@ -29,7 +30,7 @@ export class EmployeeViewAgentComponent implements OnInit {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.adminService.deleteEmployee(id).subscribe(response => {
+        this.empService.deleteEmployee(id).subscribe(response => {
           console.log(response);
         });
         this.ngOnInit();
@@ -42,7 +43,7 @@ export class EmployeeViewAgentComponent implements OnInit {
     })
   }
   ngOnInit(): void {
-    this.adminService.viewAgents().subscribe(emp=>{
+    this.empService.viewAgents().subscribe(emp=>{
       this.employeeList=emp
     })
   }

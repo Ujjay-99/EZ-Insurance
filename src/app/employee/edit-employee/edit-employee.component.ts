@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AdminDataService } from 'src/app/admin/admin-services/admin-data.service';
 import { first } from 'rxjs/operators';
 import Swal from 'sweetalert2'
+import { EmployeeService } from '../employee.service';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class EditEmployeeComponent implements OnInit {
     private adminService:AdminDataService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
+    private employeeService:EmployeeService,
     private router: Router) { }
   
   get f() { return this.editform.controls; }
@@ -65,7 +67,7 @@ export class EditEmployeeComponent implements OnInit {
 
         });
         if (!this.isAddMode) {
-          this.adminService.viewEmployeeById(this.id)
+          this.employeeService.viewEmployeeById(this.id)
               .pipe(first())
               .subscribe(x => this.editform.patchValue(x));
       }
@@ -73,7 +75,7 @@ export class EditEmployeeComponent implements OnInit {
   }
 
 private updateEmployee() {
-  this.adminService.updateEmployee(this.editform.value)
+  this.employeeService.updateEmployee(this.editform.value)
       .pipe(first())
       .subscribe({
         next: (response) => {

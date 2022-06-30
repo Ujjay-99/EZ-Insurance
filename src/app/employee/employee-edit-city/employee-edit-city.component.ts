@@ -6,6 +6,7 @@ import { AdminDataService } from 'src/app/admin/admin-services/admin-data.servic
 import { ICity } from 'src/app/models/ICity';
 import { IState } from 'src/app/models/IState';
 import Swal from 'sweetalert2'
+import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-employee-edit-city',
@@ -21,8 +22,9 @@ export class EmployeeEditCityComponent implements OnInit {
   stateList:IState[]=[]
   constructor(private adminService: AdminDataService,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute) {
-      this.adminService.viewState().subscribe(states=>{
+    private route: ActivatedRoute,
+    private empService:EmployeeService) {
+      this.empService.viewState().subscribe(states=>{
         console.log(states);
         
         this.stateList=states
@@ -53,7 +55,7 @@ export class EmployeeEditCityComponent implements OnInit {
       isActive:this.cityForm.controls['status'].value
 
     }
-    this.adminService
+    this.empService
     .addCity(cityData)
     .pipe(first())
     .subscribe({
@@ -75,7 +77,7 @@ export class EmployeeEditCityComponent implements OnInit {
       isActive:this.cityForm.controls['status'].value
 
     }
-    this.adminService.updateCity(cityData)
+    this.empService.updateCity(cityData)
         .pipe(first())
         .subscribe({
           next: (response) => {
@@ -97,7 +99,7 @@ export class EmployeeEditCityComponent implements OnInit {
       status: [null, Validators.required]
     });
     if (!this.isAddMode) {
-      this.adminService
+      this.empService
         .viewCityById(this.id)
         .pipe(first())
         .subscribe((x) => this.cityForm.patchValue(x));

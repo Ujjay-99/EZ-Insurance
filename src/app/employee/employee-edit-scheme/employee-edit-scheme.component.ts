@@ -6,6 +6,7 @@ import { IInsuraceScheme } from 'src/app/models/iinsurace-scheme';
 import { IInsuranceType } from 'src/app/models/IInsuranceType';
 import { first } from 'rxjs/operators';
 import Swal from 'sweetalert2'
+import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-employee-edit-scheme',
@@ -23,8 +24,9 @@ export class EmployeeEditSchemeComponent implements OnInit {
   constructor(private adminService: AdminDataService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private router:Router) { 
-    this.adminService.viewType().subscribe(type=>{
+    private router:Router,
+    private empService:EmployeeService) { 
+    this.empService.viewType().subscribe(type=>{
       console.log(type);
       
       this.typeList=type
@@ -62,7 +64,7 @@ export class EmployeeEditSchemeComponent implements OnInit {
       isActive:this.schemeForm.controls['isActive'].value,
       // createdAt:''
     }
-    this.adminService
+    this.empService
     .addScheme(schemeData)
     .pipe(first())
     .subscribe({
@@ -90,7 +92,7 @@ export class EmployeeEditSchemeComponent implements OnInit {
 
     }
 
-    this.adminService.updateScheme(schemeData)
+    this.empService.updateScheme(schemeData)
         .pipe(first())
         .subscribe({
           next: (response) => {
@@ -116,7 +118,7 @@ export class EmployeeEditSchemeComponent implements OnInit {
       isActive: [null, Validators.required]
     });
     if (!this.isAddMode) {
-      this.adminService
+      this.empService
         .viewSchemeById(this.id)
         .pipe(first())
         .subscribe((x) => this.schemeForm.patchValue(x));

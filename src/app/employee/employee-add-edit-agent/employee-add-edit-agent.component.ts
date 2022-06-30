@@ -74,7 +74,7 @@ export class EmployeeAddEditAgentComponent implements OnInit {
       password: ['', Validators.required]
     });
     if (!this.isAddMode) {
-      this.adminService
+      this.empService
         .viewEmployeeById(this.id)
         .pipe(first())
         .subscribe((x) => this.form.patchValue(x));
@@ -94,7 +94,7 @@ export class EmployeeAddEditAgentComponent implements OnInit {
       phoneNumber : this.form.controls['phoneNumber'].value
     }
 
-    this.adminService
+    this.empService
       .addAgent(payload)
       .pipe(first())
       .subscribe({
@@ -107,7 +107,7 @@ export class EmployeeAddEditAgentComponent implements OnInit {
       });
   }
   private updateAgent() {
-    this.adminService
+    this.empService
       .updateAgent(this.form.value)
       .pipe(first())
       .subscribe({

@@ -5,6 +5,7 @@ import { AdminDataService } from 'src/app/admin/admin-services/admin-data.servic
 import { IInsuranceType } from 'src/app/models/IInsuranceType';
 import { first } from 'rxjs/operators';
 import Swal from 'sweetalert2'
+import { EmployeeService } from '../employee.service';
 @Component({
   selector: 'app-employee-edit-type',
   templateUrl: './employee-edit-type.component.html',
@@ -18,7 +19,8 @@ export class EmployeeEditTypeComponent implements OnInit {
   constructor(
     private adminService: AdminDataService,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private empService:EmployeeService
   ) {}
   get f() {
     return this.typeForm.controls;
@@ -43,7 +45,7 @@ export class EmployeeEditTypeComponent implements OnInit {
       typeTitle: this.typeForm.controls['typeTitle'].value,
       isActive: this.typeForm.controls['status'].value,
     };
-    this.adminService.updateType(typeData)
+    this.empService.updateType(typeData)
         .pipe(first())
         .subscribe({
           next: (response) => {
@@ -64,7 +66,7 @@ export class EmployeeEditTypeComponent implements OnInit {
       status: [null, Validators.required],
     });
     if (!this.isAddMode) {
-      this.adminService
+      this.empService
         .viewTypeById(this.id)
         .pipe(first())
         .subscribe((x) => this.typeForm.patchValue(x));

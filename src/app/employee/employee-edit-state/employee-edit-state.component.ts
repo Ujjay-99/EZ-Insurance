@@ -5,6 +5,7 @@ import { AdminDataService } from 'src/app/admin/admin-services/admin-data.servic
 import { IState } from 'src/app/models/IState';
 import { first } from 'rxjs/operators';
 import Swal from 'sweetalert2'
+import { EmployeeService } from '../employee.service';
 @Component({
   selector: 'app-employee-edit-state',
   templateUrl: './employee-edit-state.component.html',
@@ -20,7 +21,8 @@ export class EmployeeEditStateComponent implements OnInit {
   // status:FormControl
   constructor(private adminService: AdminDataService,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute,) { }
+    private route: ActivatedRoute,
+    private empService:EmployeeService) { }
 
     onSubmit() {
       console.log(this.isAddMode);
@@ -43,7 +45,7 @@ export class EmployeeEditStateComponent implements OnInit {
         isActive:this.stateForm.controls['status'].value
   
       }
-      this.adminService
+      this.empService
         .addState(stateData)
         .pipe(first())
         .subscribe({
@@ -64,7 +66,7 @@ export class EmployeeEditStateComponent implements OnInit {
         isActive:this.stateForm.controls['status'].value
   
       }
-      this.adminService.updateState(stateData)
+      this.empService.updateState(stateData)
           .pipe(first())
           .subscribe({
             next: (response) => {
@@ -85,7 +87,7 @@ export class EmployeeEditStateComponent implements OnInit {
       status: [null, Validators.required]
     });
     if (!this.isAddMode) {
-      this.adminService
+      this.empService
         .viewStateById(this.id)
         .pipe(first())
         .subscribe((x) => this.stateForm.patchValue(x));

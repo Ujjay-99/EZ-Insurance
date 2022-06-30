@@ -7,6 +7,7 @@ import { IInsuranceType } from 'src/app/models/IInsuranceType';
 import { first } from 'rxjs/operators';
 import Swal from 'sweetalert2'
 import { IInsuracePlan } from 'src/app/models/IInsurancePlan';
+import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-employee-edit-plan',
@@ -28,7 +29,8 @@ export class EmployeeEditPlanComponent implements OnInit {
     private adminService:AdminDataService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private empService:EmployeeService) { }
   onSubmit() {
     console.log(this.isAddMode);
     this.submitted = true;
@@ -45,7 +47,7 @@ export class EmployeeEditPlanComponent implements OnInit {
 
   onSelected(value:string){
     this.selectedPlan=value
-    this.adminService.viewSchemesByType(this.selectedPlan).subscribe(schemes=>{
+    this.empService.viewSchemesByType(this.selectedPlan).subscribe(schemes=>{
       console.log(schemes);      
       this.schemeList=schemes
     })
@@ -67,7 +69,7 @@ export class EmployeeEditPlanComponent implements OnInit {
       profitRatio:this.form.controls['profitRatio'].value,
       isActive:this.form.controls['status'].value,
     }
-    this.adminService
+    this.empService
     .addPlan(planData)
     .pipe(first())
     .subscribe({
@@ -96,7 +98,7 @@ export class EmployeeEditPlanComponent implements OnInit {
       isActive:this.form.controls['status'].value,
     }
 
-    this.adminService.updatePlan(planData)
+    this.empService.updatePlan(planData)
         .pipe(first())
         .subscribe({
           next: (response) => {
@@ -111,7 +113,7 @@ export class EmployeeEditPlanComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.adminService.viewType().subscribe(type=>{
+    this.empService.viewType().subscribe(type=>{
       console.log(type);
       
       this.typeList=type
@@ -131,7 +133,7 @@ export class EmployeeEditPlanComponent implements OnInit {
       status: [null, Validators.required]
     });
     if (!this.isAddMode) {
-      this.adminService
+      this.empService
         .viewPlanById(this.id)
         .pipe(first())
         .subscribe((x) => this.form.patchValue(x));

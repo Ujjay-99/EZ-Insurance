@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminDataService } from 'src/app/admin/admin-services/admin-data.service';
 import { IQuery } from 'src/app/models/IQuery';
 import Swal from 'sweetalert2';
+import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-employee-view-queries',
@@ -14,7 +15,7 @@ export class EmployeeViewQueriesComponent implements OnInit {
   queries:IQuery[]
   defalutTime:Date 
 
-    constructor(private adminService:AdminDataService) { }
+    constructor(private adminService:AdminDataService,private empService:EmployeeService) { }
 
     reply(Query:IQuery){
       
@@ -39,7 +40,7 @@ export class EmployeeViewQueriesComponent implements OnInit {
             replyTime: new Date()
           }
           
-        this.adminService.reply(payload).subscribe(x=>{
+        this.empService.reply(payload).subscribe(x=>{
           console.log(x);
           return x
           
@@ -55,7 +56,7 @@ export class EmployeeViewQueriesComponent implements OnInit {
     })
   }
     ngOnInit(): void {
-      this.adminService.viewQueries().subscribe(x=>{
+      this.empService.viewQueries().subscribe(x=>{
         this.queries=x
         console.log(x);
       })

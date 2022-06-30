@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminDataService } from 'src/app/admin/admin-services/admin-data.service';
 import { IState } from 'src/app/models/IState';
+import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-employee-view-state',
@@ -11,14 +12,14 @@ import { IState } from 'src/app/models/IState';
 export class EmployeeViewStateComponent implements OnInit {
 
   stateList:IState[]=[]
-  constructor(private adminService:AdminDataService,private router:Router) { 
+  constructor(private adminService:AdminDataService,private router:Router,private empService:EmployeeService) { 
     
     
   }
   deleteState(id: string) {
     console.log(id);
 
-    this.adminService.deleteState(id).subscribe({
+    this.empService.deleteState(id).subscribe({
       next: (response) => {
         console.log(response);
       },
@@ -37,7 +38,7 @@ export class EmployeeViewStateComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.adminService.viewState().subscribe(states=>{
+    this.empService.viewState().subscribe(states=>{
       console.log(states);
       
       this.stateList=states

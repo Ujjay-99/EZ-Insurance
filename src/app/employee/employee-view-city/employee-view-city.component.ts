@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminDataService } from 'src/app/admin/admin-services/admin-data.service';
 import { ICity } from 'src/app/models/ICity';
+import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-employee-view-city',
@@ -11,14 +12,14 @@ import { ICity } from 'src/app/models/ICity';
 export class EmployeeViewCityComponent implements OnInit {
 
   cityList:ICity[]=[]
-  constructor(private adminService:AdminDataService,private router:Router) { 
+  constructor(private adminService:AdminDataService,private router:Router,private empService:EmployeeService) { 
     
     
   }
   deleteCity(id: string) {
     console.log(id);
 
-    this.adminService.deleteCity(id).subscribe({
+    this.empService.deleteCity(id).subscribe({
       next: (response) => {
         console.log(response);
       },
@@ -36,7 +37,7 @@ export class EmployeeViewCityComponent implements OnInit {
     this.router.navigate([`Employee/EditCity/${id}`])    
   }
   ngOnInit(): void {
-    this.adminService.viewCity().subscribe(city=>{
+    this.empService.viewCity().subscribe(city=>{
       console.log(city);
       
       this.cityList=city

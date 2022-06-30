@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminDataService } from 'src/app/admin/admin-services/admin-data.service';
 import { IEmployee } from 'src/app/models/IEmployee';
+import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-employee-dashboard',
@@ -16,22 +17,22 @@ export class EmployeeDashboardComponent implements OnInit {
   employeesCount:number;
   policiesBoughtCount:number;
   agentList:IEmployee[] = [];
-  constructor(private adminService:AdminDataService) { }
+  constructor(private adminService:AdminDataService,private empService:EmployeeService) { }
 
   ngOnInit(): void {
-    this.adminService.viewState().subscribe(response =>{
+    this.empService.viewState().subscribe(response =>{
       this.stateCount = response.length;
     });
-    this.adminService.viewCity().subscribe(response =>{
+    this.empService.viewCity().subscribe(response =>{
       this.cityCount = response.length;
     });
-    this.adminService.viewPlans().subscribe(response =>{
+    this.empService.viewPlans().subscribe(response =>{
       this.insurancePlanCount = response.length;
     });
-    this.adminService.viewScheme().subscribe(response =>{
+    this.empService.viewScheme().subscribe(response =>{
       this.insuranceSchemeCount = response.length;
     });
-    this.adminService.viewAgents().subscribe(response =>{
+    this.empService.viewAgents().subscribe(response =>{
       this.agentsCount = response.length;
       this.agentList = response;
     });

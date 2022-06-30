@@ -22,7 +22,7 @@ export class EmployeeViewCustomersComponent implements OnInit {
   
   ngOnInit(): void {
  
-    this.adminService.viewCustomers().subscribe(customer=>{
+    this.employeeService.viewCustomers().subscribe(customer=>{
       this.customerList=customer
     })
   }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminDataService } from 'src/app/admin/admin-services/admin-data.service';
 import { IInsuraceScheme } from 'src/app/models/iinsurace-scheme';
+import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-employee-view-scheme',
@@ -11,12 +12,12 @@ import { IInsuraceScheme } from 'src/app/models/iinsurace-scheme';
 export class EmployeeViewSchemeComponent implements OnInit {
 
   schemeList:IInsuraceScheme[]=[]
-  constructor(private adminService:AdminDataService,private router:Router) { 
+  constructor(private adminService:AdminDataService,private router:Router,private empService:EmployeeService) { 
   }
   deleteScheme(id: string) {
     console.log(id);
 
-    this.adminService.deleteScheme(id).subscribe({
+    this.empService.deleteScheme(id).subscribe({
       next: (response) => {
         console.log(response);
       },
@@ -35,7 +36,7 @@ export class EmployeeViewSchemeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.adminService.viewScheme().subscribe(scheme=>{
+    this.empService.viewScheme().subscribe(scheme=>{
       console.log(scheme);
       
       this.schemeList=scheme
