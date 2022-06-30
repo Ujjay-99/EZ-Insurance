@@ -107,7 +107,7 @@ export class PurchasePlanComponent implements OnInit {
     console.log(this.schemeTitle);
     
 
-    this.adminService
+    this.customerService
         .viewPlanBySchemeTitle(this.schemeTitle)
         .subscribe(x => {
           this.insuranceSchemeTitle=x[0].insuranceSchemeTitle;

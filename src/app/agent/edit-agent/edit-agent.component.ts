@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AdminDataService } from 'src/app/admin/admin-services/admin-data.service';
 import { first } from 'rxjs/operators';
 import Swal from 'sweetalert2'
+import { AgentService } from '../agent.service';
 @Component({
   selector: 'app-edit-agent',
   templateUrl: './edit-agent.component.html',
@@ -19,6 +20,7 @@ export class EditAgentComponent implements OnInit {
     private adminService:AdminDataService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
+    private agentService:AgentService,
     private router: Router) { }
   
   get f() { return this.editform.controls; }
@@ -63,7 +65,7 @@ export class EditAgentComponent implements OnInit {
 
         });
         if (!this.isAddMode) {
-          this.adminService.viewAgentById(this.id)
+          this.agentService.viewAgentById(this.id)
               .pipe(first())
               .subscribe(x => this.editform.patchValue(x));
       }
@@ -71,7 +73,7 @@ export class EditAgentComponent implements OnInit {
   }
 
 private updateAgent() {
-  this.adminService.updateAgent(this.editform.value)
+  this.agentService.updateAgent(this.editform.value)
       .pipe(first())
       .subscribe({
         next: (response) => {

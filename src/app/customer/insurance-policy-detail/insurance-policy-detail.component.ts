@@ -19,7 +19,7 @@ export class InsurancePolicyDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private customerService: CustomerService,
-    private adminService: AdminDataService
+    
   ) {}
   id = '';
   accountDetail: IInsuranceAccount;

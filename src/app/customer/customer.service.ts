@@ -5,7 +5,10 @@ import { IAddPolicy } from '../models/IAddPolicy';
 import { IAddQuery } from '../models/IAddQuery';
 import { ICustomer } from '../models/ICustomer';
 import { IDocument } from '../models/IDocument';
+import { IInsuraceScheme } from '../models/iinsurace-scheme';
 import { IInsuranceAccount } from '../models/IInsuranceAccount';
+import { IInsuracePlan } from '../models/IInsurancePlan';
+import { IInsuranceType } from '../models/IInsuranceType';
 import { IMakePayment } from '../models/IMakePayment';
 import { IPayment } from '../models/IPayment';
 import { IPolicy } from '../models/IPolicy';
@@ -70,11 +73,21 @@ export class CustomerService {
   setCustomerId(empId:string){
     this.customerId =  empId;
   }
+  
 
   addPayment(payload:IMakePayment){
     return this.http.post(`http://localhost:5000/api/Customers/addPayment`,payload);
   }
   viewQueriesByCustomerId(id:string){
     return this.http.get<IQuery[]>(`http://localhost:5000/api/Customers/Query/getQueryByCustomerId/${id}`)
+  }
+  viewScheme(){
+    return this.http.get<IInsuraceScheme[]>(`http://localhost:5000/api/Admin/InsuranceScheme/getSchemes`)
+  }
+  viewType(){
+    return this.http.get<IInsuranceType[]>(`http://localhost:5000/api/Admin/InsuranceType/getTypes`)
+  }
+  viewPlanBySchemeTitle(schemeTitle:string){
+    return this.http.get<IInsuracePlan[]>(`http://localhost:5000/api/Admin/InsurancePlan/getPlans/${schemeTitle}`)
   }
 }

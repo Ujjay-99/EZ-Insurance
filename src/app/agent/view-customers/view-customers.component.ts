@@ -48,7 +48,7 @@ export class ViewCustomersComponent implements OnInit {
   }
   ngOnInit(): void {
     this.agentId = this.agentService.getAgentId();
-    this.adminService.viewCustomersByAgentId(this.agentId).subscribe(customer=>{
+    this.agentService.viewCustomersByAgentId(this.agentId).subscribe(customer=>{
       this.customerList=customer
     })
   }

@@ -32,12 +32,12 @@ export class AddEditCustomerComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private agentService:AgentService) { 
-      this.adminService.viewState().subscribe(states=>{
+      this.agentService.viewState().subscribe(states=>{
         console.log(states);
         
         this.stateList=states
       })
-      this.adminService.viewCity().subscribe(city=>{
+      this.agentService.viewCity().subscribe(city=>{
         console.log(city);
         
         this.cityList=city
@@ -118,7 +118,7 @@ export class AddEditCustomerComponent implements OnInit {
 
     }
 
-    this.adminService
+    this.agentService
       .addCustomer(payload)
       .pipe(first())
       .subscribe({

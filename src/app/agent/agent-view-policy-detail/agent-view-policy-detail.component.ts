@@ -18,7 +18,6 @@ export class AgentViewPolicyDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private customerService: CustomerService,
-    private adminService: AdminDataService,
     private agentService: AgentService,
 
   ) {}

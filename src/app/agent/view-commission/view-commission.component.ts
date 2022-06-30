@@ -19,7 +19,7 @@ export class ViewCommissionComponent implements OnInit {
   ngOnInit(): void {
     this.agentId = this.agentService.getAgentId();
     console.log(this.agentId);
-    this.adminService.viewAgentById(this.agentId)
+    this.agentService.viewAgentById(this.agentId)
               .subscribe(a => {
               this.agent = a;
               this.agentService.getCommissionsByAgentId(this.agentId)
