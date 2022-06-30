@@ -126,7 +126,7 @@ export class AdminDataService {
     return this.http.get<IInsuranceType>(`http://localhost:5000/api/Admin/InsuranceType/getType/${id}`)
   }
   viewScheme(){
-    return this.http.get<IInsuraceScheme[]>(`http://localhost:5000/api/Admin/InsuranceScheme/getSchemes`)
+    return this.http.get<IInsuraceScheme[]>(`http://localhost:5000/api/Admin/InsuranceScheme/getMainSchemes`)
   }
   viewSchemesWithImage(){
     return this.http.get<ISchemeWithImage[]>(`http://localhost:5000/api/Admin/InsuranceScheme/getSchemes`)
@@ -202,7 +202,7 @@ export class AdminDataService {
     return this.http.get<IUser>(`http://localhost:5000/api/users/${id}`)
   }
   viewPayments(){
-    return this.http.get<IPayment[]>(`http://localhost:5000/api/Customers/getPayments`);
+    return this.http.get<IPayment[]>(`http://localhost:5000/api/Admin/getPayments`);
   }
 
   viewQueries(){
@@ -211,7 +211,4 @@ export class AdminDataService {
   reply(payload:IQuery){
     return this.http.put(`http://localhost:5000/api/Admin/Query/replyToQuery`,payload)
   }
-  // viewCustomerByAccountId(accountId:string){
-  //   return this.http.get<ICustomer[]>(`http://localhost:5000/api/Customers/getAccount/${accountId}`)
-  // }
 }
