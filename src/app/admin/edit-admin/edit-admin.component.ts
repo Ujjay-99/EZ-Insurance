@@ -61,8 +61,8 @@ export class EditAdminComponent implements OnInit {
             email: ['', [Validators.required, Validators.email]],
             doB: ['', Validators.required],
             userName: ['', Validators.required],
-            phoneNumber: ['', Validators.required],   
-            password: ['', Validators.required],     
+            passwordHash: ['', Validators.required],     
+            // phoneNumber: ['', Validators.required],   
 
         });
         if (!this.isAddMode) {
@@ -86,6 +86,8 @@ export class EditAdminComponent implements OnInit {
 //         });
 // }
 private updateAdmin() {
+  console.log(this.editform.value);
+  
   this.adminService.updateAdmin(this.editform.value)
       .pipe(first())
       .subscribe({

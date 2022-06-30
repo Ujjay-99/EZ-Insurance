@@ -6,5 +6,5 @@ export interface IAdmin{
         password: string
         userName: string
         doB: string
-        phoneNumber: number
+        // phoneNumber: number
 }

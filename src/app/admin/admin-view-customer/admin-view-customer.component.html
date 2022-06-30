@@ -21,9 +21,9 @@
           <tbody>
             <tr *ngFor="let Customer of customerList">
               <td><h3>{{Customer.firstName}} {{Customer.lastName}}</h3></td>
-              <td>{{Customer.doB}}</td>
+              <td>{{Customer.doB | date:"dd/MM/yyyy"}}</td>
               <td>{{Customer.userName}}</td>
-              <td>{{Customer.address}} &nbsp; {{Customer.city}} &nbsp; {{Customer.state}}</td>
+              <td>{{Customer.address}} {{Customer.city}} {{Customer.state}}</td>
               <td>{{Customer.phoneNumber}}</td>
               <td>{{Customer.nominee}}</td>
               <td>{{Customer.nomineeRelation}}</td>

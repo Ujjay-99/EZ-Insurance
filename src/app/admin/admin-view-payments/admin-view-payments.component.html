@@ -1,28 +1,27 @@
-<div class="container">
-    <h3>Payment Detail</h3>
-    <table class="table">
-        <thead>
-            <tr>
-                <!-- <th scope="col">Installment Number</th> -->
-                <!-- <th scope="col">Customer Name</th> -->
-                <th scope="col">Account Id</th>  
-                <th scope="col">Installment Number</th>
-                <th scope="col">Total Amount</th>
-                <th scope="col">Paid Date</th>
-                <!-- <th scope="col">Recipt</th> -->
-            </tr>
-        </thead>
-        <tbody>
-            <tr  *ngFor="let payment of paymentsList">
-                <!-- <td>name</td> -->
-                <td>{{payment.accountId}}</td>
-                <td>{{payment.installmentNumber}}</td>
-                <td>{{payment.finalAmount}}</td>
-                <td>{{payment.paidDate | date:'short'}}</td>
 
-            </tr>
-            
-        </tbody>
-    </table>
-    
-</div>
+    <div class="card m-4">
+        <div class="card-header">
+            <h3>Payment Detail</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <!-- <th scope="col">Installment Number</th> -->
+                        <!-- <th scope="col">Customer Name</th> -->
+                        <th scope="col">Account Id</th>
+                        <th scope="col">Installment Number</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Paid Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let payment of paymentsList">
+                        <!-- <td>name</td> -->
+                        <td>{{payment.accountId}}</td>
+                        <td>{{payment.installmentNumber}}</td>
+                        <td>₹ {{payment.finalAmount | number}}</td>
+                        <td>{{payment.paidDate | date:'short'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>

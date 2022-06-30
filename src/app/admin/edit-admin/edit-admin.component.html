@@ -48,19 +48,19 @@
                                     </div>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="password" formControlName="password" class="form-control" placeholder="pass"/>
+                                    <input type="password" formControlName="passwordHash" class="form-control" placeholder="pass"/>
                                     <label>Password</label>
                                     <div *ngIf="submitted && f.password.errors" >
                                         <span *ngIf="f.password.errors.required">&nbsp; Password is required</span>
                                     </div>
                                 </div>
-                                <div class="form-floating mb-3">
+                                <!-- <div class="form-floating mb-3">
                                     <input type="text" formControlName="phoneNumber" class="form-control" placeholder="ph"/>
                                     <label>Phone No</label>
                                     <div *ngIf="submitted && f.phoneNumber.errors" >
                                         <span *ngIf="f.phoneNumber.errors.required">&nbsp; Phone is required</span>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="mt-4 mb-0">
                                     <div class="d-grid">
                                         <button  class="btn btn-success btn-block">                                            
