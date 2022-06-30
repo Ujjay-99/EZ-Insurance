@@ -28,7 +28,7 @@ export class AgentService {
     return this.customer;
   }
   getDocumentsByCustomerId(id:string){
-    return this.http.get<IDocument[]>(`http://localhost:5000/api/admin/image/getImagesByBaseId/${id}` )
+    return this.http.get<IDocument[]>(`http://localhost:5000/api/Agent/getImagesByBaseId/${id}` )
   }
   agentLogin(payload:any){
     return this.http.post(`http://localhost:5000/api/users/agent-login`, payload )
@@ -51,7 +51,7 @@ export class AgentService {
     return this.http.put(`http://localhost:5000/api/Agent/withdrawAmount`,payload)
   }
   viewAccountsByAgentId(id:string){
-    return this.http.get<IInsuranceAccount[]>(`http://localhost:5000/api/Customers/getAccountsByAgentId/${id}`)
+    return this.http.get<IInsuranceAccount[]>(`http://localhost:5000/api/Agent/getAccountsByAgentId/${id}`)
   }
   account:IInsuranceAccount
   setAccount(account:IInsuranceAccount){
@@ -69,13 +69,13 @@ export class AgentService {
   }
   getPaymentsByPolicyId(id:string){
     console.log(id);    
-    return this.http.get<IPayment[]>(`http://localhost:5000/api/Customers/getPaymentsByPolicyId/${id}` )
+    return this.http.get<IPayment[]>(`http://localhost:5000/api/Agent/getPaymentsByPolicyId/${id}` )
   }
   viewState(){
-    return this.http.get<IState[]>(`http://localhost:5000/api/Admin/state/getStates`)
+    return this.http.get<IState[]>(`http://localhost:5000/api/Agent/state/getStates`)
   }
   viewCity(){
-    return this.http.get<ICity[]>(`http://localhost:5000/api/Admin/city/getCities`)
+    return this.http.get<ICity[]>(`http://localhost:5000/api/Agent/city/getCities`)
   }
   addCustomer(empData:ICustomer){
     return this.http.post(`http://localhost:5000/api/Users/addCustomer`, empData )

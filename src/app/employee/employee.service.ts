@@ -27,10 +27,10 @@ export class EmployeeService {
     return this.customer;
   }
   getDocumentsByCustomerId(id:string){
-    return this.http.get<IDocument[]>(`http://localhost:5000/api/admin/image/getImagesByBaseId/${id}` )
+    return this.http.get<IDocument[]>(`http://localhost:5000/api/employee/getImagesByBaseId/${id}` )
   }
   deleteDocument(id:string){
-    return this.http.delete(`http://localhost:5000/api/admin/image/deleteDocument/${id}` )
+    return this.http.delete(`http://localhost:5000/api/employee/deleteDocument/${id}` )
   }
   employeeLogin(payload:any){
     return this.http.post(`http://localhost:5000/api/users/employee-login`, payload )
@@ -57,82 +57,82 @@ export class EmployeeService {
     return this.http.put(`http://localhost:5000/api/Users/update-user`, empData )
   }
   viewState(){
-    return this.http.get<IState[]>(`http://localhost:5000/api/Admin/state/getStates`)
+    return this.http.get<IState[]>(`http://localhost:5000/api/employee/state/getStates`)
   }
   viewCity(){
-    return this.http.get<ICity[]>(`http://localhost:5000/api/Admin/city/getCities`)
+    return this.http.get<ICity[]>(`http://localhost:5000/api/employee/city/getCities`)
   }
   viewPlans(){
-    return this.http.get<IInsuracePlan[]>(`http://localhost:5000/api/Admin/InsurancePlan/getPlans`)
+    return this.http.get<IInsuracePlan[]>(`http://localhost:5000/api/employee/InsurancePlan/getPlans`)
   }
   viewScheme(){
-    return this.http.get<IInsuraceScheme[]>(`http://localhost:5000/api/Admin/InsuranceScheme/getSchemes`)
+    return this.http.get<IInsuraceScheme[]>(`http://localhost:5000/api/employee/InsuranceScheme/getSchemes`)
   }
   viewAgents(){
     return this.http.get<IEmployee[]>(`http://localhost:5000/api/Users/getUsersByRoles/Agent`)
   }
   addCity(data:ICity){
-    return this.http.post(`http://localhost:5000/api/Admin/city/addCity`, data )
+    return this.http.post(`http://localhost:5000/api/employee/city/addCity`, data )
   }
   updateCity(data:ICity){
     console.log(data);
     
-    return this.http.put(`http://localhost:5000/api/Admin/city/update`, data )
+    return this.http.put(`http://localhost:5000/api/employee/city/update`, data )
   }
   viewCityById(id:string){
-    return this.http.get<IState[]>(`http://localhost:5000/api/Admin/city/getCity/${id}`)
+    return this.http.get<IState[]>(`http://localhost:5000/api/employee/city/getCity/${id}`)
   }
   viewSchemesByType(type:string){
-    return this.http.get<IInsuraceScheme[]>(`http://localhost:5000/api/Admin/InsuranceScheme/getSchemes/${type}`)
+    return this.http.get<IInsuraceScheme[]>(`http://localhost:5000/api/employee/InsuranceScheme/getSchemes/${type}`)
   }
   addPlan(planData:IInsuracePlan){
     console.log(planData);
     
-    return this.http.post(`http://localhost:5000/api/Admin/InsurancePlan/addPlan`, planData )
+    return this.http.post(`http://localhost:5000/api/employee/InsurancePlan/addPlan`, planData )
   }
   updatePlan(data:IInsuracePlan){
     console.log(data);
     
-    return this.http.put(`http://localhost:5000/api/Admin/InsurancePlan/update`, data )
+    return this.http.put(`http://localhost:5000/api/employee/InsurancePlan/update`, data )
   }
   viewType(){
-    return this.http.get<IInsuranceType[]>(`http://localhost:5000/api/Admin/InsuranceType/getTypes`)
+    return this.http.get<IInsuranceType[]>(`http://localhost:5000/api/employee/InsuranceType/getTypes`)
   }
   viewPlanById(id:string){
-    return this.http.get<IInsuracePlan[]>(`http://localhost:5000/api/Admin/InsurancePlan/getPlan/${id}`)
+    return this.http.get<IInsuracePlan[]>(`http://localhost:5000/api/employee/InsurancePlan/getPlan/${id}`)
   }
   addScheme(schemeData:IInsuraceScheme){
     console.log(schemeData);
     
-    return this.http.post(`http://localhost:5000/api/Admin/InsuranceScheme/addScheme`, schemeData )
+    return this.http.post(`http://localhost:5000/api/employee/InsuranceScheme/addScheme`, schemeData )
   }
   updateScheme(data:IInsuraceScheme){
     console.log(data);    
-    return this.http.put(`http://localhost:5000/api/Admin/InsuranceScheme/update`, data )
+    return this.http.put(`http://localhost:5000/api/employee/InsuranceScheme/update`, data )
   }
   viewSchemeById(id:string){
-    return this.http.get<IInsuraceScheme>(`http://localhost:5000/api/Admin/InsuranceScheme/getScheme/${id}`)
+    return this.http.get<IInsuraceScheme>(`http://localhost:5000/api/employee/InsuranceScheme/getScheme/${id}`)
   }
   addState(data:IState){
     console.log(data);
     
-    return this.http.post(`http://localhost:5000/api/Admin/state/addState`, data )
+    return this.http.post(`http://localhost:5000/api/employee/state/addState`, data )
   }
   updateState(data:IState){
     console.log(data);
     
-    return this.http.put(`http://localhost:5000/api/Admin/state/update`, data )
+    return this.http.put(`http://localhost:5000/api/employee/state/update`, data )
   }
   viewStateById(id:string){
-    return this.http.get<IState[]>(`http://localhost:5000/api/Admin/state/getState/${id}`)
+    return this.http.get<IState[]>(`http://localhost:5000/api/employee/state/getState/${id}`)
   }
   updateType(data:IInsuranceType){
     console.log(data);
     
-    return this.http.put(`http://localhost:5000/api/Admin/InsuranceType/update`, data )
+    return this.http.put(`http://localhost:5000/api/employee/InsuranceType/update`, data )
   }
   viewTypeById(id:string){
-    return this.http.get<IInsuranceType>(`http://localhost:5000/api/Admin/InsuranceType/getType/${id}`)
+    return this.http.get<IInsuranceType>(`http://localhost:5000/api/employee/InsuranceType/getType/${id}`)
   }
   deleteEmployee(id:string){
     return this.http.delete(`http://localhost:5000/api/users/delete/${id}`)
@@ -144,25 +144,25 @@ export class EmployeeService {
     return this.http.get<ICustomer[]>(`http://localhost:5000/api/Users/getUsersByRoles/Customer`)
   }
   viewPayments(){
-    return this.http.get<IPayment[]>(`http://localhost:5000/api/Customers/getPayments`);
+    return this.http.get<IPayment[]>(`http://localhost:5000/api/employee/getPayments`);
   }
   deletePlan(id:string){
-    return this.http.delete(`http://localhost:5000/api/Admin/InsurancePlan/${id}`)
+    return this.http.delete(`http://localhost:5000/api/employee/InsurancePlan/${id}`)
   }
   reply(payload:IQuery){
-    return this.http.put(`http://localhost:5000/api/Admin/Query/replyToQuery`,payload)
+    return this.http.put(`http://localhost:5000/api/employee/Query/replyToQuery`,payload)
   }
   viewQueries(){
-    return this.http.get<IQuery[]> (`http://localhost:5000/api/Admin/Query/getQueries`)
+    return this.http.get<IQuery[]> (`http://localhost:5000/api/employee/Query/getQueries`)
   }
   deleteScheme(id:string){
-    return this.http.delete(`http://localhost:5000/api/Admin/InsuranceScheme/${id}`)
+    return this.http.delete(`http://localhost:5000/api/employee/InsuranceScheme/${id}`)
   }
   deleteState(id:string){
-    return this.http.delete(`http://localhost:5000/api/Admin/state/${id}`)
+    return this.http.delete(`http://localhost:5000/api/employee/state/${id}`)
   }
   deleteType(id:string){
-    return this.http.delete(`http://localhost:5000/api/Admin/InsuranceType/${id}`)
+    return this.http.delete(`http://localhost:5000/api/employee/InsuranceType/${id}`)
   }
   
   

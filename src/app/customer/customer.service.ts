@@ -25,14 +25,14 @@ export class CustomerService {
 
   uploadDocument(payload:IUploadDocument){
     console.log("payload in service: ", payload);
-    return this.http.post<IUploadDocument>(`http://localhost:5000/api/admin/image/uploadDocument`, payload )
+    return this.http.post<IUploadDocument>(`http://localhost:5000/api/customer/uploadDocument`, payload )
   }
 
   deleteDocument(id:string){
-    return this.http.delete(`http://localhost:5000/api/admin/image/deleteDocument/${id}` )
+    return this.http.delete(`http://localhost:5000/api/customer/deleteDocument/${id}` )
   }
   getDocumentsByCustomerId(id:string){
-    return this.http.get<IDocument[]>(`http://localhost:5000/api/admin/image/getImagesByBaseId/${id}` )
+    return this.http.get<IDocument[]>(`http://localhost:5000/api/customer/getImagesByBaseId/${id}` )
   }
   customerLogin(payload:any){
     return this.http.post(`http://localhost:5000/api/users/customer-login`, payload )
@@ -82,12 +82,12 @@ export class CustomerService {
     return this.http.get<IQuery[]>(`http://localhost:5000/api/Customers/Query/getQueryByCustomerId/${id}`)
   }
   viewScheme(){
-    return this.http.get<IInsuraceScheme[]>(`http://localhost:5000/api/Admin/InsuranceScheme/getSchemes`)
+    return this.http.get<IInsuraceScheme[]>(`http://localhost:5000/api/customer/InsuranceScheme/getSchemes`)
   }
   viewType(){
-    return this.http.get<IInsuranceType[]>(`http://localhost:5000/api/Admin/InsuranceType/getTypes`)
+    return this.http.get<IInsuranceType[]>(`http://localhost:5000/api/customer/InsuranceType/getTypes`)
   }
   viewPlanBySchemeTitle(schemeTitle:string){
-    return this.http.get<IInsuracePlan[]>(`http://localhost:5000/api/Admin/InsurancePlan/getPlans/${schemeTitle}`)
+    return this.http.get<IInsuracePlan[]>(`http://localhost:5000/api/customer/InsurancePlan/getPlans/${schemeTitle}`)
   }
 }
