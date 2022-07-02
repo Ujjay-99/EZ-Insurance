@@ -16,6 +16,8 @@ import{IPayment} from 'src/app/models/IPayment'
 import { IQuery } from 'src/app/models/IQuery';
 import { IDocument } from 'src/app/models/IDocument';
 import { ISchemeWithImage } from 'src/app/models/ISchemeWithImage';
+import { IInsuranceAccount } from 'src/app/models/IInsuranceAccount';
+import { IPolicy } from 'src/app/models/IPolicy';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +27,33 @@ export class AdminDataService {
   constructor(private http:HttpClient) { }
   customer:ICustomer;
   scheme:IInsuraceScheme;
+  account:IInsuranceAccount;
+  policy:IPolicy;
+
+  setAccount(account:IInsuranceAccount){
+    this.account = account;
+  }
+
+  getAccount(){
+    return this.account;
+  }
+
+  setPolicy(policy:IPolicy){
+    this.policy = policy;
+  }
+
+  getPolicy(){
+    return this.policy;
+  }
+
+  getAllPolicies(){
+    return this.http.get<IPolicy[]>(`http://localhost:5000/api/Admin/getPolicies`)
+  }
+
+  getPaymentsByPolicyId(id:string){
+    console.log(id);    
+    return this.http.get<IPayment[]>(`http://localhost:5000/api/Admin/getPaymentsByPolicyId/${id}` )
+  }
 
   setCustomer(customer:ICustomer){
     this.customer = customer;
@@ -203,6 +232,10 @@ export class AdminDataService {
   }
   viewPayments(){
     return this.http.get<IPayment[]>(`http://localhost:5000/api/Admin/getPayments`);
+  }
+
+  viewAccounts(){
+    return this.http.get<IInsuranceAccount[]>(`http://localhost:5000/api/Admin/getAccounts`);
   }
 
   viewQueries(){

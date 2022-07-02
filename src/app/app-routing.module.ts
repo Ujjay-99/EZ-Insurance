@@ -14,7 +14,10 @@ import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { AdminModuleModule } from './admin/admin-module/admin-module.module';
 import { AdminViewCustomerComponent } from './admin/admin-view-customer/admin-view-customer.component';
 import { AdminViewDocumentsComponent } from './admin/admin-view-documents/admin-view-documents.component';
+import { AdminViewInsuranceDetailsComponent } from './admin/admin-view-insurance-details/admin-view-insurance-details.component';
 import { AdminViewPaymentsComponent } from './admin/admin-view-payments/admin-view-payments.component';
+import { AdminViewPoliciesComponent } from './admin/admin-view-policies/admin-view-policies.component';
+import { AdminViewPolicyDetailsComponent } from './admin/admin-view-policy-details/admin-view-policy-details.component';
 import { AdminComponent } from './admin/admin.component';
 import { EditAdminComponent } from './admin/edit-admin/edit-admin.component';
 import { ViewAgentComponent } from './admin/view-agent/view-agent.component';
@@ -215,7 +218,9 @@ const routes: Routes = [
 
     {path:'ViewPayments',component:AdminViewPaymentsComponent  },
     {path:'ViewDocuments',component:AdminViewDocumentsComponent  },
-
+    {path:'ViewInsuranceDetails',component:AdminViewInsuranceDetailsComponent  },
+    {path:'ViewPolicies',component:AdminViewPoliciesComponent  },
+    {path:'ViewPolicyDetails',component:AdminViewPolicyDetailsComponent  },
     {path:'ViewQueries',component:ViewQueriesComponent}
   ]
   }

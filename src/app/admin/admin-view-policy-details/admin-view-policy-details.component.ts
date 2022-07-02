@@ -1,24 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AdminDataService } from 'src/app/admin/admin-services/admin-data.service';
 import { CustomerService } from 'src/app/customer/customer.service';
-import { ICustomer } from 'src/app/models/ICustomer2';
+import { ICustomer } from 'src/app/models/ICustomer';
 import { IInsuranceAccount } from 'src/app/models/IInsuranceAccount';
-import { IMakePayment } from 'src/app/models/IMakePayment';
 import { IPayment } from 'src/app/models/IPayment';
 import { IPolicy } from 'src/app/models/IPolicy';
-import { AgentService } from '../agent.service';
+import { AdminDataService } from '../admin-services/admin-data.service';
 
 @Component({
-  selector: 'app-agent-view-policy-detail',
-  templateUrl: './agent-view-policy-detail.component.html',
-  styleUrls: ['./agent-view-policy-detail.component.css']
+  selector: 'app-admin-view-policy-details',
+  templateUrl: './admin-view-policy-details.component.html',
+  styleUrls: ['./admin-view-policy-details.component.css']
 })
-export class AgentViewPolicyDetailComponent implements OnInit {
+export class AdminViewPolicyDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private customerService: CustomerService,
-    private agentService: AgentService,
+    private adminService: AdminDataService,
 
   ) {}
   id = '';
@@ -42,24 +40,23 @@ export class AgentViewPolicyDetailComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     
-    this.policy = this.agentService.getPolicy();
+    this.policy = this.adminService.getPolicy();
     this.policyId = this.policy.id;
     this.installmentNumber=this.policy.installmentsCount
     this.installmentAmount=this.policy.installmentAmount
     this.policyDate=this.policy.createdAt
 
-    this.agentService.getPaymentsByPolicyId(this.policyId).subscribe((x) => {
+    this.adminService.getPaymentsByPolicyId(this.policyId).subscribe((x) => {
       this.success(x);
     });
 
-   
   }
   
   customerId:string
   
   success(data: IPayment[]) {
     this.payments = data;
-    this.customerId=this.agentService.getAccount().customerId
+    this.customerId=this.adminService.getAccount().customerId
     this.customerService
       .getCustomerById(this.customerId)
       .subscribe((x) => {
@@ -81,9 +78,9 @@ export class AgentViewPolicyDetailComponent implements OnInit {
     return newDate;
   }
   updateDate() {
-    let newDate: Date = new Date(this.policyDate);  
-    this.policyDate= new Date(newDate.setMonth(newDate.getMonth()+5));  
-    console.log('asdasd');
+    this.policyDate = new Date(this.policyDate);  
+    this.policyDate = new Date(this.policyDate.setMonth(this.policyDate.getMonth()+5));  
+    console.log('--------------------------------------');
     
   }
   

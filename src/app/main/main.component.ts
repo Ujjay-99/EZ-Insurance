@@ -47,4 +47,9 @@ export class MainComponent implements OnInit {
       this.schemesList[i].url = this.url;
     }
   }
+
+  planDetails(schemeTitle:string){
+    console.log(schemeTitle);
+    this.router.navigate([`PlanDetail/${schemeTitle}`])
+  }
 }

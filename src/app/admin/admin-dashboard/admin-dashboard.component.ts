@@ -42,6 +42,9 @@ export class AdminDashboardComponent implements OnInit {
     this.adminService.viewCustomers().subscribe(response =>{
       this.customersCount = response.length;
     });
+    this.adminService.getAllPolicies().subscribe(response =>{
+      this.policiesBoughtCount = response.length;
+    });
     // this.adminService.viewPolicies().subscribe(response =>{
     //   this.policiesBoughtCount = response.length;
     // });

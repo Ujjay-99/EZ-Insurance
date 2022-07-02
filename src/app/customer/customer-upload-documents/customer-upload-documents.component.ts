@@ -28,7 +28,6 @@ export class CustomerUploadDocumentsComponent implements OnInit {
     this.customerService.getDocumentsByCustomerId(this.customerId)
           .subscribe(d => {
             console.log(d);
-            
               this.documents = d;
           })
   }
@@ -39,9 +38,7 @@ export class CustomerUploadDocumentsComponent implements OnInit {
     
     if (files && file) {
         var reader = new FileReader();
-
         reader.onload =this.handleReaderLoaded.bind(this);
-
         reader.readAsBinaryString(file);
     }
   }
@@ -113,16 +110,16 @@ export class CustomerUploadDocumentsComponent implements OnInit {
           'Your file has been deleted.',
           'success'
         )
-        this.ngOnInit();
       } else if (
         result.dismiss === Swal.DismissReason.cancel
-      ) {
-        Swal.fire(
-          'Cancelled',
-          'Your document is safe :)',
-          'error'
-        )
-      }
+        ) {
+          Swal.fire(
+            'Cancelled',
+            'Your document is safe :)',
+            'error'
+            )
+          }
+          this.ngOnInit();
     })
     
   }

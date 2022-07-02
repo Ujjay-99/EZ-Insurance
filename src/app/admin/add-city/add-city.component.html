@@ -15,7 +15,7 @@
                             <form [formGroup]="cityForm" (ngSubmit)="onSubmit()">
                                 <label>State</label>
                                 <select formControlName="stateName" class="form-select">
-                                    <option *ngFor="let state of stateList" value={{state.stateName}}>{{state.stateName}}</option>
+                                    <option *ngFor="let state of stateList" value={{state.stateName}}>{{state.stateName}}></option>
                                 </select>
                                 <div *ngIf="submitted && f.stateName.errors" class="invalid-feedback">
                                     <div *ngIf="f.stateName.errors.required">stateName is required</div>

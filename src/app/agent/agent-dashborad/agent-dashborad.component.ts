@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AgentService } from '../agent.service';
 
 @Component({
   selector: 'app-agent-dashborad',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgentDashboradComponent implements OnInit {
   customerCount:number
-  constructor() { }
+  constructor(private agentService:AgentService) { }
 
   ngOnInit(): void {
+    this.agentService.viewCustomersByAgentId(this.agentService.getAgentId()).subscribe(customer=>{
+      this.customerCount=customer.length
+    })
   }
 
 }
